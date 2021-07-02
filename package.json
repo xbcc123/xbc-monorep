@@ -19,9 +19,9 @@
   "workspaces": {
     "packages": [
       "components",
-      "config/*",
-      "utils/*",
-      "tools/*"
+      "config",
+      "utils",
+      "tools"
     ]
   }
 }

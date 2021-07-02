@@ -16,7 +16,7 @@
     },
     "bootstrap": {
       "ignore": [
-        "tools/*"
+        "tools"
       ],
       "npmClientArgs": [
         "--no-package-lock"
