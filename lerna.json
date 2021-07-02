@@ -5,8 +5,11 @@
   ],
   "command": {
     "create": {
-      "homepage": "https://gitlab.dinghuo123.com/FET/ircloud-monorepo",
       "license": "MIT"
+    },
+    "publish": {
+      "ignoreChanges": ["ignored-file", "*.md"],
+      "message": "chore(release): publish"
     },
     "bootstrap": {
       "ignore": [
