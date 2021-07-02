@@ -1,0 +1,35 @@
+{
+  "packages": [
+    "components",
+    "utils/*"
+  ],
+  "command": {
+    "create": {
+      "homepage": "https://gitlab.dinghuo123.com/FET/ircloud-monorepo",
+      "license": "MIT"
+    },
+    "publish": {
+      "ignoreChanges": [
+        "ignored-file"
+      ],
+      "message": "chore(release): publish %s"
+    },
+    "bootstrap": {
+      "ignore": [
+        "tools/*"
+      ],
+      "npmClientArgs": [
+        "--no-package-lock"
+      ]
+    },
+    "version": {
+      "allowBranch": [
+        "master",
+        "release"
+      ]
+    }
+  },
+  "version": "0.0.1",
+  "npmClient": "yarn",
+  "useWorkspaces": true
+}
