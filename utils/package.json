@@ -13,5 +13,6 @@
   "dependencies": {
     "@types/lodash": "^4.14.170",
     "lodash": "^4.17.21"
-  }
+  },
+  "gitHead": "eb383948d7a86f1d8a9e4dde7402a299cb79aaeb"
 }
