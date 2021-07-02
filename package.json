@@ -1,7 +1,27 @@
 {
-  "name": "root",
+  "name": "xbc-monorepo",
   "private": true,
+  "scripts": {
+    "dev": "yarn run clean:build && yarn run bootstrap",
+    "add": "lerna add",
+    "bootstrap": "lerna bootstrap",
+    "changed": "lerna changed",
+    "clean": "lerna clean && rm -rf node_modules",
+    "clean:build": "lerna run clean",
+    "create": "lerna create",
+    "publish": "lerna version patch --no-private --yes && lerna publish from-package",
+    "test": "lerna run test",
+    "import": "lerna import"
+  },
   "devDependencies": {
     "lerna": "^3.22.1"
+  },
+  "workspaces": {
+    "packages": [
+      "components",
+      "config/*",
+      "utils/*",
+      "tools/*"
+    ]
   }
 }
