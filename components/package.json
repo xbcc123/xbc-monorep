@@ -8,5 +8,10 @@
   },
   "author": "",
   "license": "ISC",
-  "gitHead": "334e980abd0d23916d650f4e16de53f1031f54a7"
+  "gitHead": "334e980abd0d23916d650f4e16de53f1031f54a7",
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
 }
