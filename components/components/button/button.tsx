@@ -4,11 +4,11 @@ import { StandardProps } from '../types/index';
 
 import "./SaleStageCompoment.less"
 
-interface IButtonProps extends StandardProps {
+export interface XButtonProps extends StandardProps {
 }
 
 const prefixCls = 'x-button';
-const Button: FC<IButtonProps> = (props: PropsWithChildren<IButtonProps>) => {
+const Button: FC<XButtonProps> = (props: PropsWithChildren<XButtonProps>) => {
     const { className, children, ...otherProps } = props;
 
     const classNames = classnames(prefixCls, className);
