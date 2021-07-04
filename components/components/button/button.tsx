@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import React, { FC,  PropsWithChildren } from 'react';
-import { StandardProps } from '../types';
+import { StandardProps } from '../types/common';
 
 import "./SaleStageCompoment.less"
 
