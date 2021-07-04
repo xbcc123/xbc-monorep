@@ -1,3 +1,3 @@
 
-export type { XButtonProps } from './button/index';
-export { default as Button } from './button/index';
+export type { XButtonProps } from './button';
+export { default as Button } from './button';
