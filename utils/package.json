@@ -6,7 +6,7 @@
   "module": "es/index.js",
   "typings": "es/index.d.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc -b && tsc -b tsconfig.es.json"
   },
   "author": "",
   "license": "ISC",
