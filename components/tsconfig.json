@@ -4,8 +4,9 @@
         "outDir": "./lib",
         "allowJs": true,
         "target": "es5",
-        "lib": ["es2016"],
-        "moduleResolution": "Node"
+        "lib": ["es6", "esnext"],
+        "moduleResolution": "Node",
+        "experimentalDecorators": true,
     },
     "include": [
         "./components/**/*"

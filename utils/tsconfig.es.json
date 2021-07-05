@@ -9,6 +9,6 @@
         "moduleResolution": "Node"
     },
     "include": [
-        "./components/**/*"
+        "./src/**/*"
     ]
 }
