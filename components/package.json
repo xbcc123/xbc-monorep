@@ -3,10 +3,10 @@
   "version": "0.0.4",
   "description": "",
   "main": "lib/index.js",
-  "module": "lib/index.js",
-  "typings": "src/components/index.d.ts",
+  "module": "es/index.js",
+  "typings": "lib/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -b && tsc -b tsconfig.es.json"
   },
   "author": "",
   "license": "ISC",

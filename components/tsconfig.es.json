@@ -1,10 +1,11 @@
 {
     "compilerOptions": {
         "jsx": "react",
-        "outDir": "./lib",
+        "outDir": "./es",
         "allowJs": true,
-        "target": "es5",
+        "target": "es6",
         "lib": ["es2016"],
+        "declaration": true,
         "moduleResolution": "Node"
     },
     "include": [
