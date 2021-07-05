@@ -28,8 +28,8 @@ node_modules
 *.log
 lib/
 tmp
-built
 dist
+es
 .changelog
 coverage/
 .nyc_output/
