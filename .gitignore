@@ -25,6 +25,7 @@ package-lock.json
 
 # Project Specific
 node_modules
+web
 *.log
 lib/
 tmp
