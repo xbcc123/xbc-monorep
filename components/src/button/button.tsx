@@ -2,7 +2,7 @@ import classnames from 'classnames';
 import React, { FC,  PropsWithChildren } from 'react';
 import { StandardProps } from '../types/common';
 
-import "./SaleStageCompoment.less"
+import "./style/index.less"
 
 export interface XButtonProps extends StandardProps {
 }
@@ -15,6 +15,7 @@ const Button: FC<XButtonProps> = (props: PropsWithChildren<XButtonProps>) => {
 
     return (
         <div className={classNames} {...restProps} >
+            我是一个demo按钮
         </div>
     );
 };

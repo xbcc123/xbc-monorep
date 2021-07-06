@@ -1,7 +1,8 @@
 {
   "packages": [
     "components",
-    "utils"
+    "utils",
+    "web/*"
   ],
   "command": {
     "create": {
@@ -10,22 +11,22 @@
     "publish": {
       "ignoreChanges": [
         "ignored-file",
-        "*.md"
+        "*.md",
+        "web/*"
       ],
       "message": "chore(release): publish"
     },
     "bootstrap": {
       "ignore": [
-        "tools"
       ],
       "npmClientArgs": [
-        "--no-package-lock"
+        "--no-package-lock",
+        "--hoist"
       ]
     },
     "version": {
       "allowBranch": [
-        "main",
-        "release"
+        "main"
       ]
     }
   },
