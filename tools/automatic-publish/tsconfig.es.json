@@ -4,7 +4,7 @@
         "outDir": "./es",
         "allowJs": true,
         "target": "es6",
-        "lib": ["es6", "esnext"],
+        "lib": ["dom", "esnext"],
         "declaration": true,
         "moduleResolution": "Node"
     },

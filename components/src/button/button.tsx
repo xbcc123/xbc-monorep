@@ -2,13 +2,13 @@ import classnames from 'classnames';
 import React, { FC,  PropsWithChildren } from 'react';
 import { StandardProps } from '../types/common';
 
-import "./style/index.less"
+// import "./style/index.less"
 
 export interface XButtonProps extends StandardProps {
 }
 
 const prefixCls = 'x-button';
-const Button: FC<XButtonProps> = (props: PropsWithChildren<XButtonProps>) => {
+const XButton: FC<XButtonProps> = (props: PropsWithChildren<XButtonProps>) => {
     const { className, children, ...restProps } = props;
 
     const classNames = classnames(prefixCls, className);
@@ -20,4 +20,4 @@ const Button: FC<XButtonProps> = (props: PropsWithChildren<XButtonProps>) => {
     );
 };
 
-export default Button;
+export default XButton;

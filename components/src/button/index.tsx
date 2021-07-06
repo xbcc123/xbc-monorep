@@ -1,5 +1,5 @@
-import Button from './button';
+import XButton from './button';
 
 export { XButtonProps } from './button';
 
-export default Button;
+export default XButton;
