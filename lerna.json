@@ -19,9 +19,9 @@
     "bootstrap": {
       "ignore": [
       ],
-      "hoist": true,
       "npmClientArgs": [
-        "--no-package-lock"
+        "--no-package-lock",
+        "--hoist"
       ]
     },
     "version": {
