@@ -19,15 +19,16 @@
     "bootstrap": {
       "ignore": [
       ],
+      "hoist": true,
       "npmClientArgs": [
-        "--no-package-lock",
-        "--hoist"
+        "--no-package-lock"
       ]
     },
     "version": {
       "allowBranch": [
         "main"
-      ]
+      ],
+      "conventionalCommits": true
     }
   },
   "version": "0.0.5",
