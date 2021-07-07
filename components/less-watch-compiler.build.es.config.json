@@ -1,0 +1,5 @@
+{
+  "watchFolder": "src/styles",
+  "outputFolder": "es/styles",
+  "runOnce": true
+}

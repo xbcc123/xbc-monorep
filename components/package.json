@@ -6,7 +6,9 @@
   "module": "es/index.js",
   "typings": "es/index.d.ts",
   "scripts": {
-    "build": "tsc -b && tsc -b tsconfig.es.json && node config/copy.js"
+    "dev": "tsc --project ./tsconfig.es.json --watch --incremental & less-watch-compiler",
+    "build": "tsc -b && tsc -b tsconfig.es.json && yarn run build:less && node config/copy.js",
+    "build:less": "less-watch-compiler --config less-watch-compiler.build.config.json && less-watch-compiler --config less-watch-compiler.build.es.config.json"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +26,7 @@
     "@types/react-dom": "^17.0.8",
     "babel-loader": "^8.2.2",
     "fs-extra": "^10.0.0",
+    "less-watch-compiler": "^1.16.2",
     "ts-loader": "^9.2.3",
     "typescript": "^4.3.5",
     "webpack": "^5.42.1"
