@@ -7,9 +7,9 @@
         "lib": ["dom", "esnext"],
         "moduleResolution": "Node",
         "experimentalDecorators": true,
-        "esModuleInterop": true
+        "allowSyntheticDefaultImports": true
     },
     "include": [
-        "./src/**/*"
+        "src/**/*"
     ]
 }

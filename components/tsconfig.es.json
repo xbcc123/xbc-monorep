@@ -6,9 +6,11 @@
         "target": "es6",
         "lib": ["dom", "esnext"],
         "declaration": true,
-        "moduleResolution": "Node"
+        "moduleResolution": "Node",
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true
     },
     "include": [
-        "./src/**/*"
+        "src/**/*"
     ]
 }

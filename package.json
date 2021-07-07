@@ -5,7 +5,7 @@
     "dev": "yarn run clean:build && yarn run bootstrap",
     "bootstrap": "lerna bootstrap",
     "clean": "lerna clean && rm -rf node_modules",
-    "build": "yarn workspaces run build",
+    "build": "lerna run build",
     "publish": "lerna version patch --no-private --yes && lerna publish from-package",
     "test": "lerna run test"
   },

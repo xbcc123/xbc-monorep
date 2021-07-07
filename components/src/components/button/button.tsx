@@ -1,8 +1,6 @@
 import classnames from 'classnames';
 import React, { FC,  PropsWithChildren } from 'react';
-import { StandardProps } from '../types/common';
-
-// import "./style/index.less"
+import { StandardProps } from '../../types/common';
 
 export interface XButtonProps extends StandardProps {
 }

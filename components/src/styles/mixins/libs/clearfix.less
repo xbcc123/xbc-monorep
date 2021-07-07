@@ -1,0 +1,21 @@
+/**
+ * @example less
+ *
+ * .element {
+ *   @include clearfix;
+ * }
+ *
+ * // CSS Output
+ * .element::after {
+ *   clear: both;
+ *   content: '';
+ *   display: block;
+ * }
+ */
+.clearfix-minxin() {
+  &::after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+}
