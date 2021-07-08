@@ -13,7 +13,8 @@
       "ignoreChanges": [
         "ignored-file",
         "*.md",
-        "web/*"
+        "web/*",
+        "docs/*"
       ],
       "message": "chore(release): publish"
     },
