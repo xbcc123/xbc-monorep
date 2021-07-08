@@ -17,7 +17,7 @@ export const XButton: FC<XButtonProps> = (props: PropsWithChildren<XButtonProps>
         <div className={classNames} {...restProps} >
             我是一个demo按钮!!
         </div>
-        <Button>我是一个ant按钮</Button>
+        <Button type="primary">我是一个ant按钮</Button>
       </>
     );
 };
