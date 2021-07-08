@@ -9,6 +9,7 @@
     "publish": "lerna version patch --no-private --yes && lerna publish from-package",
     "test": "lerna run test"
   },
+  "author": "yankangjie<287207951@qq.com>",
   "devDependencies": {
     "lerna": "^3.22.1",
     "@commitlint/cli": "^8.3.5",
@@ -26,7 +27,8 @@
       "components",
       "tools/*",
       "utils",
-      "web/*"
+      "web/*",
+      "docs/*"
     ]
   }
 }

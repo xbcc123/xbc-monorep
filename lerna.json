@@ -2,7 +2,8 @@
   "packages": [
     "components",
     "utils",
-    "web/*"
+    "web/*",
+    "docs/*"
   ],
   "command": {
     "create": {

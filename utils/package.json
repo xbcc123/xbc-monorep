@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsc -b && tsc -b tsconfig.es.json"
   },
-  "author": "",
+  "author": "yankangjie<287207951@qq.com>",
   "license": "ISC",
   "dependencies": {
     "@types/lodash": "^4.14.170",

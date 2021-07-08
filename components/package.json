@@ -10,7 +10,13 @@
     "build": "tsc -b && tsc -b tsconfig.es.json && yarn run build:less && node config/copy.js",
     "build:less": "less-watch-compiler --config less-watch-compiler.build.config.json && less-watch-compiler --config less-watch-compiler.build.es.config.json"
   },
-  "author": "",
+  "files": [
+    "lib",
+    "es",
+    "src",
+    "assets"
+  ],
+  "author": "yankangjie<287207951@qq.com>",
   "license": "ISC",
   "gitHead": "d7a0f079c0803db9cec0ef9122f2f4ef40cfa429",
   "dependencies": {
