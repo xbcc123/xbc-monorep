@@ -20,6 +20,7 @@
   "license": "ISC",
   "gitHead": "d7a0f079c0803db9cec0ef9122f2f4ef40cfa429",
   "dependencies": {
+    "antd": "^4.16.6",
     "classnames": "^2.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
