@@ -1,15 +1,10 @@
 {
-    "compilerOptions": {
-        "jsx": "react",
-        "outDir": "./lib",
-        "allowJs": true,
-        "target": "es5",
-        "lib": ["dom", "esnext"],
-        "moduleResolution": "Node",
-        "experimentalDecorators": true,
-        "allowSyntheticDefaultImports": true
-    },
-    "include": [
-        "src/**/*"
-    ]
+  "extends": "../tsconfig",
+  "compilerOptions": {
+    "outDir": "./lib",
+    "target": "es5",
+  },
+  "include": [
+    "src/**/*"
+  ]
 }

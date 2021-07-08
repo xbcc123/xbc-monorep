@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "allowJs": true,
+    "lib": ["dom", "esnext"],
+    "declaration": true,
+    "moduleResolution": "Node",
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": [
+    "node_modules/*"
+  ]
+}
