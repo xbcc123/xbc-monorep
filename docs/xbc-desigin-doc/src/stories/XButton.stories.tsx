@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from './Button';
 import { XButton } from "xbc-design/src"
-import "xbc-design/es/styles/index.css"
+// import "xbc-design/es/styles/index.css"
 
 export default {
   title: 'Example/XButton',

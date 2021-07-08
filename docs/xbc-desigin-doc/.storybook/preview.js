@@ -7,3 +7,4 @@ export const parameters = {
     },
   },
 }
+import 'xbc-design/es/styles/index.css'
