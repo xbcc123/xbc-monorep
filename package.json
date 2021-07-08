@@ -26,7 +26,7 @@
     "packages": [
       "components",
       "tools/*",
-      "utils",
+      "utils/*",
       "web/*",
       "docs/*"
     ]

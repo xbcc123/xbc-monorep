@@ -1,7 +1,7 @@
 {
   "packages": [
     "components",
-    "utils",
+    "utils/*",
     "web/*",
     "docs/*"
   ],
