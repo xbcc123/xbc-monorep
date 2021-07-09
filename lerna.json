@@ -14,8 +14,7 @@
         "ignored-file",
         "*.md",
         "web/*",
-        "docs/*",
-        "tools/*"
+        "docs/*"
       ],
       "message": "chore(release): publish"
     },
