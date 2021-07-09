@@ -2,7 +2,7 @@
   "name": "xbc-monorepo",
   "private": true,
   "scripts": {
-    "dev": "yarn run clean:build && yarn run bootstrap",
+    "dev": "yarn run clean && yarn run bootstrap",
     "bootstrap": "lerna bootstrap",
     "clean": "lerna clean && rm -rf node_modules",
     "build": "lerna run build",
