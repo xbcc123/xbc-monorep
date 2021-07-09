@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.7](https://github.com/xbcc123/xbc-monorep/compare/v0.0.6...v0.0.7) (2021-07-09)
+
+
+### Bug Fixes
+
+* normal ([b836139](https://github.com/xbcc123/xbc-monorep/commit/b8361390a63532f7706261f62088e62905fc5e29))
+* npm 源 ([691adb3](https://github.com/xbcc123/xbc-monorep/commit/691adb3340441430ac8139a0682da4fac23e56a2))
+* tools ([7ac1479](https://github.com/xbcc123/xbc-monorep/commit/7ac1479eec4d5ffb05065f824000203f0d27c1ae))
+
+
+### Features
+
+* 增加测试文件 ([ebe349d](https://github.com/xbcc123/xbc-monorep/commit/ebe349d502235767acf66c001b066ca646ad0fde))
+
+
+
+
+
 ## [0.0.6](https://github.com/xbcc123/xbc-monorep/compare/v0.0.5...v0.0.6) (2021-07-09)
 
 
