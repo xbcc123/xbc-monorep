@@ -28,7 +28,8 @@
     },
     "version": {
       "allowBranch": [
-        "main"
+        "main",
+        "test-publish"
       ],
       "conventionalCommits": true
     }
