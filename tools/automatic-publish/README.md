@@ -12,10 +12,6 @@ yarn add automatic-publish -D
 
 待定
 
-## Features
-
-* [X] 按需加载
-
 ## Contributing
 
 PRs accepted.
