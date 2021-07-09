@@ -1,4 +1,2 @@
-export type { GetKeyFromfiledsProps } from './from';
-export type { ListFromFormProps } from './from';
-export type { GetFormFieldsFromListProps } from './from';
-export {  getKeyFromfileds, listFromForm, getFormFieldsFromList } from './from'; 
+export type { GetKeyFromfiledsProps, ListFromFormProps, GetFormFieldsFromListProps } from './from';
+export {  getKeyFromfileds, listFromForm, getFormFieldsFromList } from './from';

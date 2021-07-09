@@ -16,7 +16,7 @@ export const getKeyFromfileds = ({filedName, fileds, symbol = ','}: GetKeyFromfi
                 key: item.split(symbol)[1],
                 value: fileds[item],
              }
-         } 
+         }
     }).filter(item => item)
     return keyfileds
 }
@@ -51,7 +51,7 @@ export const listFromForm = ({obj, symbol= ','}: ListFromFormProps): any[] => {
 }
 
 export interface GetFormFieldsFromListProps {
-    options: any[]  
+    options: any[]
     filedsArray: any[]
     symbol: string
 }
