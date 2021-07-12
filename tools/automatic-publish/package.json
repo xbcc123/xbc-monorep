@@ -2,9 +2,16 @@
   "name": "xbc-automatic-publish",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "tsc -b && tsc -b tsconfig.es.json"
+  },
+  "dependencies": {
+    "colors": "^1.1.2",
+    "cpx": "^1.5.0",
+    "fs-extra": "^7.0.0",
+    "make-dir": "^1.1.0",
+    "rimraf": "^2.6.2"
   },
   "author": "",
   "license": "ISC"

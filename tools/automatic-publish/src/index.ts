@@ -139,7 +139,7 @@ class AutomaticPublish {
                 });
             });
         }
-        
+
         /**
          * git切换分支,提交操作
          * @param {*} compilation - webpack编译类
@@ -147,21 +147,24 @@ class AutomaticPublish {
          */
         const gitOperate = async (compilation, callback) => {
             const cwd = path.resolve(__dirname, '../../', gitDir);
+            // console.log();
+
+            // try {
+            //   await fsExtra.access('/etc/passwd', constants.R_OK | constants.W_OK);
+            //   console.log(colors.yellow.underline(`copy-then-auto-git --- 校验更目录通过`));
+            // } catch {
+            //   console.log(colors.yellow.underline(`copy-then-auto-git --- 请在项目根目录使用`));
+            // }
+
+            // console.log(cwd, path.resolve(__dirname),  gitDir);
+            callback();
+            return
             // 切换分支
             try {
                 await execPromise(`git checkout ${branch}`, cwd);
                 console.log(colors.yellow.underline(`copy-then-auto-git --- 切换分支成功，当前分支:${branch}`));
             } catch (err) {
                 console.log(colors.red.underline(`copy-then-auto-git --- 切换${branch}分支失败`), err);
-                callback();
-                return;
-            }
-            // 拉取远程分支代码
-            try {
-                await execPromise(`git pull origin ${branch}`, cwd);
-                console.log(colors.yellow.underline(`copy-then-auto-git --- pull 远程仓库${branch}分支成功`));
-            } catch (err) {
-                console.log(colors.red.underline(`copy-then-auto-git --- pull 远程仓库${branch}分支失败`, err));
                 callback();
                 return;
             }
@@ -189,6 +192,15 @@ class AutomaticPublish {
                 console.log(colors.yellow.underline(`copy-then-auto-git --- commit到${branch}分支成功`));
             } catch (err) {
                 console.log(colors.red.underline(`copy-then-auto-git --- commit到${branch}分支失败`), err);
+                callback();
+                return;
+            }
+            // 拉取远程分支代码
+            try {
+                await execPromise(`git pull origin ${branch}`, cwd);
+                console.log(colors.yellow.underline(`copy-then-auto-git --- pull 远程仓库${branch}分支成功`));
+            } catch (err) {
+                console.log(colors.red.underline(`copy-then-auto-git --- pull 远程仓库${branch}分支失败`, err));
                 callback();
                 return;
             }
