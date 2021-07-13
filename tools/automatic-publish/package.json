@@ -4,7 +4,7 @@
   "description": "",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
-  "homepage": "https://github.com/xbcc123/xbc-monorep",
+  "homepage": "https://github.com/xbcc123/xbc-monorep/tree/main/tools/automatic-publish",
   "scripts": {
     "dev": "tsc --project ./tsconfig.json --watch --incremental",
     "build": "tsc -b"
