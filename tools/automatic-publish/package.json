@@ -3,6 +3,7 @@
   "version": "0.0.8",
   "description": "",
   "main": "lib/index.js",
+  "homepage": "https://github.com/xbcc123/xbc-monorep",
   "scripts": {
     "dev": "tsc --project ./tsconfig.json --watch --incremental",
     "build": "tsc -b"

@@ -4,18 +4,8 @@
 
 ## Install
 
-```
-yarn add automatic-publish -D
-```
+npm i xbc-automatic-publish -D
 
 ## Usage
 
-待定
-
-## Contributing
-
-PRs accepted.
-
-## License
-
-MIT © Richard McRichface
+参考 [copy-then-auto-git](https://github.com/xuwenqing2014/copy-then-auto-git) 增加了gitUrl 配置部署地址
