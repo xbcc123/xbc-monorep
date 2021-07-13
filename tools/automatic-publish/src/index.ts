@@ -162,6 +162,7 @@ class AutomaticPublish {
             const cwd = path.resolve(__dirname, '../../../', gitDir);
             const gitPath = path.resolve(__dirname, '../../../', gitDir, '.git');
 
+            console.log();
             console.log('gitDir地址', cwd);
             console.log('gitDir中git项目地址', gitPath);
 
