@@ -27,6 +27,10 @@ yarn publish
 
 - [参考地址](https://github.com/xbcc123/git-commit)
 
+### 🔉发布日志
+
+本项目遵从 [Semantic Versioning](http://semver.org/). 每次发布信息都会在 Github 的 [Releases](./CHANGELOG.md) 中呈现.
+
 ### 🔗 链接
 
 - [精读《Monorepo 的优势》](https://www.bbsmax.com/A/ZOJP8EWxJv/)
