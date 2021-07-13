@@ -164,6 +164,7 @@ class AutomaticPublish {
 
             console.log();
             console.log('gitDir地址', cwd);
+            console.log();
             console.log('gitDir中git项目地址', gitPath);
 
             let gitInfo: any = null // git 仓库信息
