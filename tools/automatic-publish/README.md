@@ -13,4 +13,4 @@ npm i xbc-automatic-publish -D
 参考 [copy-then-auto-git](https://github.com/xuwenqing2014/copy-then-auto-git) 
 
 - 增加了gitUrl 配置部署地址
-- 删除了remove
+- 删除了remove 配置
