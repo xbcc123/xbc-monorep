@@ -1,3 +1,4 @@
-import * as Monitir from './model'
+import MonitorInit from './model'
 
-export default Monitir
+// 初始化
+new MonitorInit()

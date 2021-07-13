@@ -1,13 +1,3 @@
-import { JsError } from './jsError'
-import { CustomError } from './customError'
-import { IntefaceError } from './intefaceError'
-import { StaticError } from './staticError'
-import { SiftAndMakeUpMessage } from './siftAndMakeUpMessage'
+import { MonitorInit } from './monitorInit'
 
-export {
-  JsError,
-  CustomError,
-  IntefaceError,
-  StaticError,
-  SiftAndMakeUpMessage,
-}
+export default MonitorInit
