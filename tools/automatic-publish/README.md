@@ -4,7 +4,9 @@
 
 ## Install
 
+```
 npm i xbc-automatic-publish -D
+```
 
 ## Usage
 

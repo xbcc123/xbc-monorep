@@ -159,11 +159,8 @@ class AutomaticPublish {
          * @param {*} callback - 插件任务完成后的回调
          */
         const gitOperate = async (compilation, callback) => {
-            const cwd = path.resolve(__dirname, '../../', gitDir);
-            const gitPath = path.resolve(__dirname, '../../', gitDir, '.git');
-
-            // const cwd = path.resolve('/Users/mac/jg_project/kepler-front-user', gitDir);
-            // const gitPath = path.resolve('/Users/mac/jg_project/kepler-front-user', gitDir, '.git');
+            const cwd = path.resolve(__dirname, '../../../', gitDir);
+            const gitPath = path.resolve(__dirname, '../../../', gitDir, '.git');
 
             console.log('gitDir地址', cwd);
             console.log('gitDir中git项目地址', gitPath);
