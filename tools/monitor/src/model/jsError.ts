@@ -11,8 +11,8 @@ export class JsError {
   public createdWinDowOnerror() {
     window.onerror = function(errorMsg, url, lineNumber, columnNumber, errorObj) {
       const errorStack = errorObj ? errorObj.stack : null;
-      const errorInfo =  new SiftAndMakeUpMessage({errorMsg, url, lineNumber, columnNumber, errorStack}).errorInfo
-      Upload.send(errorInfo)
+      const { errorInfo } =  new SiftAndMakeUpMessage({errorMsg, url, lineNumber, columnNumber, errorStack})
+      Upload.send(errorInfo, 'onerror')
     };
   }
 
@@ -28,9 +28,17 @@ export class JsError {
         errorMsg = e.reason;
         errorStack = "";
       }
-      const errorInfo =  new SiftAndMakeUpMessage({errorMsg, 0, 0, 0, `UncaughtInPromiseError: ${errorStack}`})
+      let sourceErrorInfo = {
+        errorMsg,
+        url: '',
+        lineNumber: 0,
+        columnNumber: 0,
+        errorStack: `UncaughtInPromiseError: ${errorStack}`
+      }
+      const { errorInfo } =  new SiftAndMakeUpMessage(sourceErrorInfo)
+      Upload.send(errorInfo, 'onunhandledrejection')
       // 分类解析
-      // console.log("on_error", errorMsg, 0, 0, 0, "UncaughtInPromiseError: " + errorStack);
+      // console.log("on_error", errorMsg, 0, 0, 0, `UncaughtInPromiseError: ${errorStack}`);
       // siftAndMakeUpMessage("on_error", errorMsg, WEB_LOCATION, 0, 0, "UncaughtInPromiseError: " + errorStack);
     }
   }

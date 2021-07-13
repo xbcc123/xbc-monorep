@@ -5,8 +5,8 @@ export class Upload {
   }
 
   // 发送数据
-  static send(errorInfo) {
-    console.log('开始发送数据, 数据信息', errorInfo)
+  static send(errorInfo, type) {
+    console.log(`开始发送数据, 数据信息, type = ${type}` , errorInfo)
   }
 
 }

@@ -3,9 +3,9 @@
 import { CommonErrorInfo } from "./commonErrorInfo";
 
 export class SiftAndMakeUpMessage {
-  beforeInfo: any;
-  constructor(beforeInfo){
-    this.beforeInfo = beforeInfo
+  sourceErrorInfo: any;
+  constructor(sourceErrorInfo){
+    this.sourceErrorInfo = sourceErrorInfo
   }
 
   // 获取用户信息
