@@ -20,7 +20,7 @@ interface IAutomaticPublish {
   branch: string  // 执行git命令的分支名，默认是master
   source: string  // 静态资源需要拷贝的来源路径，必填项，无默认值
   destination: string // 静态资源需要拷贝到的目标路径，必填项，无默认值
-  remove: boolean // 是否删除旧文件，默认是删除
+  // remove: boolean // 是否删除旧文件，默认是删除
 }
 class AutomaticPublish {
     options: IAutomaticPublish
@@ -36,7 +36,7 @@ class AutomaticPublish {
             version = new Date().getTime(),
             source,
             destination,
-            remove = true
+            // remove = true
         } = this.options;
 
         /**
@@ -245,17 +245,14 @@ class AutomaticPublish {
                 return;
             }
 
-            // 如果配置了删除资源
-            if (remove) {
-                // 删除目标路径资源
-                try {
-                    await deleteAction(destination);
-                    console.log(colors.yellow.underline(`automatic-publish --- 删除${destination}成功`));
-                } catch (err) {
-                    console.log(colors.red.underline(`automatic-publish --- 删除${destination}失败`), err);
-                    callback();
-                    return;
-                }
+            // 删除目标路径资源
+            try {
+                await deleteAction(destination);
+                console.log(colors.yellow.underline(`automatic-publish --- 删除${destination}成功`));
+            } catch (err) {
+                console.log(colors.red.underline(`automatic-publish --- 删除${destination}失败`), err);
+                callback();
+                return;
             }
 
             // 拷贝资源到目标路径
