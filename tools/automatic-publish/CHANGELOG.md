@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.9](https://github.com/xbcc123/xbc-monorep/compare/v0.0.8...v0.0.9) (2021-07-13)
+
+
+### Features
+
+* 修改插件readme ([7263acf](https://github.com/xbcc123/xbc-monorep/commit/7263acfadbf910756dfca7f8af68f9645746994f))
+* 插件地址测试 ([f5ca08f](https://github.com/xbcc123/xbc-monorep/commit/f5ca08f229673cfb7fd71dfdf07aa1748f67f0df))
+
+
+
+
+
 ## [0.0.8](https://github.com/xbcc123/xbc-monorep/compare/v0.0.5...v0.0.8) (2021-07-13)
 
 
