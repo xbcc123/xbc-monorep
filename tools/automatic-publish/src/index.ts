@@ -162,6 +162,12 @@ class AutomaticPublish {
             const cwd = path.resolve(__dirname, '../../', gitDir);
             const gitPath = path.resolve(__dirname, '../../', gitDir, '.git');
 
+            // const cwd = path.resolve('/Users/mac/jg_project/kepler-front-user', gitDir);
+            // const gitPath = path.resolve('/Users/mac/jg_project/kepler-front-user', gitDir, '.git');
+
+            console.log('gitDir地址', cwd);
+            console.log('gitDir中git项目地址', gitPath);
+
             let gitInfo: any = null // git 仓库信息
             let gitUrlPip: string = '' // git 构建流水线地址
 
@@ -186,7 +192,7 @@ class AutomaticPublish {
 
               // 拉取git代码
               try {
-                await execPromise(`git clone https://gitlab.jpushoa.com/kepler-product/kepler-front-user-deploy.git .`, cwd);
+                await execPromise(`git clone ${gitUrl} .`, cwd);
                 console.log(colors.yellow.underline(`automatic-publish --- 拉取git代码成功`));
               } catch (error) {
                 console.log(error);
