@@ -1,0 +1,20 @@
+{
+  "name": "xbc-monitor",
+  "version": "0.0.11",
+  "description": "",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "homepage": "https://github.com/xbcc123/xbc-monorep/tree/main/tools/xbc-monitor",
+  "scripts": {
+    "dev": "tsc --project ./tsconfig.json --watch --incremental",
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "colors": "^1.1.2",
+    "fs-extra": "^7.0.0",
+    "open": "^8.2.1",
+    "rimraf": "^2.6.2"
+  },
+  "author": "",
+  "license": "ISC"
+}
