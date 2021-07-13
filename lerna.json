@@ -20,8 +20,7 @@
       "registry": "https://registry.npmjs.org"
     },
     "bootstrap": {
-      "ignore": [
-      ],
+      "ignore": [],
       "npmClientArgs": [
         "--no-package-lock",
         "--hoist"
@@ -34,7 +33,7 @@
       "conventionalCommits": true
     }
   },
-  "version": "0.0.5",
+  "version": "0.0.6",
   "npmClient": "yarn",
   "useWorkspaces": true
 }
