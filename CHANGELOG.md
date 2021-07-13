@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.11](https://github.com/xbcc123/xbc-monorep/compare/v0.0.10...v0.0.11) (2021-07-13)
+
+
+### Features
+
+* 删除remote配置 ([bffcdcb](https://github.com/xbcc123/xbc-monorep/commit/bffcdcbe751887b95836c419f929339db4be6ff9))
+* 文档修改 ([47b29bd](https://github.com/xbcc123/xbc-monorep/commit/47b29bde0f3accf4fd927bdde738d6294e6fcc8e))
+* 文档更新 ([1fb0370](https://github.com/xbcc123/xbc-monorep/commit/1fb0370501d67fdad7a27b4ae81fd8fea69bd145))
+
+
+
+
+
 ## [0.0.10](https://github.com/xbcc123/xbc-monorep/compare/v0.0.9...v0.0.10) (2021-07-13)
 
 
