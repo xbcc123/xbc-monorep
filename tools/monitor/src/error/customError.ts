@@ -22,10 +22,11 @@ export class CustomError {
             }
           }
           let sourceErrorInfo = {
+            type: 2,
             errorMsg,
             url: '',
-            lineNumber: 0,
-            columnNumber: 0,
+            lineNumber: '',
+            columnNumber: '',
             errorStack: `CustomizeError: ${errorMsg}`
           }
           const { errorInfo } =  new SiftAndMakeUpMessage(sourceErrorInfo)

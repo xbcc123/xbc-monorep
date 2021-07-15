@@ -11,7 +11,15 @@ export class JsError {
   public createdWinDowOnerror() {
     window.onerror = function(errorMsg, url, lineNumber, columnNumber, errorObj) {
       const errorStack = errorObj ? errorObj.stack : null;
-      const { errorInfo } =  new SiftAndMakeUpMessage({errorMsg, url, lineNumber, columnNumber, errorStack})
+      let sourceErrorInfo = {
+        type: 1,
+        errorMsg,
+        url,
+        lineNumber,
+        columnNumber,
+        errorStack
+      }
+      const { errorInfo } =  new SiftAndMakeUpMessage(sourceErrorInfo)
       Upload.send(errorInfo, 'onerror')
     };
   }
@@ -29,17 +37,15 @@ export class JsError {
         errorStack = "";
       }
       let sourceErrorInfo = {
+        type: 1,
         errorMsg,
         url: '',
-        lineNumber: 0,
-        columnNumber: 0,
+        lineNumber: '',
+        columnNumber: '',
         errorStack: `UncaughtInPromiseError: ${errorStack}`
       }
       const { errorInfo } =  new SiftAndMakeUpMessage(sourceErrorInfo)
       Upload.send(errorInfo, 'onunhandledrejection')
-      // 分类解析
-      // console.log("on_error", errorMsg, 0, 0, 0, `UncaughtInPromiseError: ${errorStack}`);
-      // siftAndMakeUpMessage("on_error", errorMsg, WEB_LOCATION, 0, 0, "UncaughtInPromiseError: " + errorStack);
     }
   }
 

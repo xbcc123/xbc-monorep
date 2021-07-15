@@ -21,7 +21,7 @@ export class CommonErrorInfo {
   /** ip */
   ip: string;
   /** 时间 */
-  date: string;
+  date: number;
   /** 城市 */
   city: string;
   /** 报错路由 */
@@ -39,9 +39,9 @@ export class CommonErrorInfo {
   /** 浏览器类型 谷歌，ie, 火狐，欧朋，... */
   browser: string;
   /** 代码出错的行数 自定义报错会有 */
-  lineNmber?: number;
+  lineNumber?: number;
   /** 代码出错的列数 自定义报错会有 */
-  cloumnNumber?: number;
+  columnNumber?: number;
   errorObj?: ErrorObj;
   /** 接口异常时候会有 http状态码.... */
   httpCode?: number;

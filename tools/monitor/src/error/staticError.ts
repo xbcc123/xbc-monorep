@@ -6,7 +6,7 @@ export class StaticError {
     this.createdStaticError()
   }
 
-  // 重写console.error 自定义异常
+  // 静态资源异常
   public createdStaticError() {
     window.addEventListener('error',function(e){
       let event: any = e
@@ -19,18 +19,22 @@ export class StaticError {
       } else if (typeName === "img") {
         sourceUrl = event.target.src;
       }
-      let sourceErrorInfo = {
-        errorMsg: '',
-        url: '',
-        lineNumber: 0,
-        columnNumber: 0,
-        errorStack: ``
+      if(sourceUrl) {
+        let sourceErrorInfo = {
+          type: 3,
+          errorMsg: typeName,
+          url: sourceUrl,
+          lineNumber: 0,
+          columnNumber: 0,
+          errorStack: ``
+        }
+        const { errorInfo } =  new SiftAndMakeUpMessage(sourceErrorInfo)
+        // console.log(e, sourceUrl);
+        Upload.send(errorInfo, 'StaticError')
+        // var resourceLoadInfo = new ResourceLoadInfo(RESOURCE_LOAD, sourceUrl, typeName, "0");
+        // resourceLoadInfo.handleLogInfo(RESOURCE_LOAD, resourceLoadInfo);
       }
-      const { errorInfo } =  new SiftAndMakeUpMessage(sourceErrorInfo)
-      console.log(e, sourceUrl);
-      // Upload.send(errorInfo)
-      // var resourceLoadInfo = new ResourceLoadInfo(RESOURCE_LOAD, sourceUrl, typeName, "0");
-      // resourceLoadInfo.handleLogInfo(RESOURCE_LOAD, resourceLoadInfo);
+
     }, true);
   }
 }

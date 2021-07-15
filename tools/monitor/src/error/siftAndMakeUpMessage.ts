@@ -20,42 +20,50 @@ export class SiftAndMakeUpMessage {
 
   // 获取ip信息
   getIp() {
-    return ""
+    const global = window as any
+    return global.returnCitySN?.cip || ''
   }
 
   // 获取当前时间
-  getCurrentDate() {
+  getDate() {
     return new Date().getTime()
   }
 
   // 获取当前城市
   getCity() {
-    return ""
+    const global = window as any
+    return global.returnCitySN?.cname || ''
   }
 
   // 获取详细错误信息
   geterrorObj() {
-    return ""
+    const { errorStack } = this.sourceErrorInfo
+    return errorStack
   }
 
   // 获取路由信息
   getPath() {
-    return window.location.origin
+    if(window.location.hash) {
+      return window.location.hash.slice(1)
+    }else {
+      return window.location.pathname
+    }
   }
 
   // 获取错误类型
-  getType() {
-    return ""
-  }
+  // getType() {
+  //   return ""
+  // }
 
   // 获取系统类型
-  getSystem() {
-    return ""
-  }
+  // getSystem() {
+  //   return ""
+  // }
 
   // 获取错误信息
   getErrorMessage() {
-    return ""
+    const { errorMsg } = this.sourceErrorInfo
+    return errorMsg
   }
 
   // 错误脚本
@@ -63,14 +71,26 @@ export class SiftAndMakeUpMessage {
     return ""
   }
 
-  // 错误域名
-  getDomain() {
-    return window.location.origin
-  }
-
   // 浏览器
   getBrowser() {
-    return ""
+    var Sys: any = {};
+    var ua = navigator.userAgent.toLowerCase();
+    var s;
+    (s = ua.match(/rv:([\d.]+)\) like gecko/)) ? Sys.ie = s[1] :
+    (s = ua.match(/msie ([\d\.]+)/)) ? Sys.ie = s[1] :
+    (s = ua.match(/edge\/([\d\.]+)/)) ? Sys.edge = s[1] :
+    (s = ua.match(/firefox\/([\d\.]+)/)) ? Sys.firefox = s[1] :
+    (s = ua.match(/(?:opera|opr).([\d\.]+)/)) ? Sys.opera = s[1] :
+    (s = ua.match(/chrome\/([\d\.]+)/)) ? Sys.chrome = s[1] :
+    (s = ua.match(/version\/([\d\.]+).*safari/)) ? Sys.safari = s[1] : 0;
+     // 根据关系进行判断
+    if (Sys.ie) return ('IE: ' + Sys.ie);
+    if (Sys.edge) return ('EDGE: ' + Sys.edge);
+    if (Sys.firefox) return ('Firefox: ' + Sys.firefox);
+    if (Sys.chrome) return ('Chrome: ' + Sys.chrome);
+    if (Sys.opera) return ('Opera: ' + Sys.opera);
+    if (Sys.safari) return ('Safari: ' + Sys.safari);
+    return 'Unkonwn';
   }
 
   // 错误行
@@ -85,28 +105,33 @@ export class SiftAndMakeUpMessage {
 
   // http状态码
   getHttpCode() {
-    return ""
+    const { httpCode = '' } = this.sourceErrorInfo
+    return httpCode
   }
 
   // 获取错误信息
   get errorInfo(): CommonErrorInfo {
+    const { type, lineNumber, columnNumber, url: fileUrl } = this.sourceErrorInfo
+    const global = window as any
     return {
-      user: this.getUser(),
-      ip:"192.168.1.109",
-      date:"2021-07-02 12:23:35",
-      city:"湖北武汉市",
-      errorObj:{},
-      path:"/",
-      type:1,
-      system:1,
-      errorMessage:"服务器内部错误",
-      fileUrl:"/path/index.js",
-      domain:"https://www.baidu.com",
-      browser:"谷歌",
-      lineNmber:12,
-      cloumnNumber:30,
-      httpCode:400,
-    } as any
+      // 基础字段 不需要另外做判断
+      user: this.getUser() as any,
+      ip: this.getIp(),
+      date: this.getDate(),
+      city: this.getCity(),
+      path: this.getPath(),
+      type,
+      system: global.__SYSTEM__,
+      domain: window.location.origin,
+      browser: this.getBrowser(),
+      // 需要根据type 做不同的处理
+      lineNumber,
+      columnNumber,
+      fileUrl,
+      errorMessage: this.getErrorMessage(),
+      errorObj: this.geterrorObj(),
+      httpCode: this.getHttpCode(),
+    }
   }
 
 }

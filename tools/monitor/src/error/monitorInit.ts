@@ -2,15 +2,23 @@ import { JsError } from './jsError'
 import { CustomError } from './customError'
 import { IntefaceError } from './intefaceError'
 import { StaticError } from './staticError'
+import { InitOptions } from './options';
+import { IMonitorInitOptions } from '../types';
+import { InitAsyncData } from './initAsyncData';
+
 
 // 脚本初始化
 export class MonitorInit {
-  constructor() {
+  options: IMonitorInitOptions
+  constructor(options: IMonitorInitOptions) {
+    this.options = options
     console.log('monitor--初始化开始');
     this.init()
     console.log('monitor--初始化完成');
   }
   init() {
+    new InitAsyncData()
+    new InitOptions(this.options)
     new JsError()
     new CustomError()
     new IntefaceError()
