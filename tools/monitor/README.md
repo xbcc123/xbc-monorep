@@ -1,16 +1,17 @@
-## automatic-publish
+## monitor
 
-项目版本发布插件
+错误监控SDK
 
 ## Install
 
 ```
-npm i xbc-automatic-publish -D
+npm i xbc-monitor -S
 ```
 
 ## Usage
 
-参考 [copy-then-auto-git](https://github.com/xuwenqing2014/copy-then-auto-git) 
+项目入口引入
 
-- 增加了gitUrl 配置部署地址
-- 删除了remove 配置
+```
+import "xbc-monitor"
+```
