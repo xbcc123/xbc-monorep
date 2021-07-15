@@ -7,8 +7,17 @@ export default class Error extends Service {
 
   public async create(req) {
     console.log(req);
+    // const app: any = this.app
+    // const mongoose = app.mongoose;
+    // const Schema = mongoose.Schema;
 
-    // const { app } = this;
+    // const UserSchema = new Schema({
+    //   userName: { type: String  },
+    //   password: { type: String  },
+    // });
+
+    // return mongoose.model('User', UserSchema);
+
     const results = "错误数据"
     // const results = await app.mysql.insert('cat_txt', req);
     return results;
