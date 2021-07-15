@@ -1,0 +1,308 @@
+{
+  "keys": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/config/config.default.ts",
+  "middleware": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/config/config.default.ts",
+  "sourceUrl": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/config/config.default.ts",
+  "session": {
+    "maxAge": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-session/config/config.default.js",
+    "key": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-session/config/config.default.js",
+    "httpOnly": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-session/config/config.default.js",
+    "encrypt": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-session/config/config.default.js",
+    "logValue": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-session/config/config.default.js"
+  },
+  "security": {
+    "domainWhiteList": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js",
+    "protocolWhiteList": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js",
+    "defaultMiddleware": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js",
+    "csrf": {
+      "enable": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js",
+      "type": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js",
+      "ignoreJSON": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js",
+      "useSession": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js",
+      "cookieName": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js",
+      "sessionName": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js",
+      "headerName": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js",
+      "bodyName": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js",
+      "queryName": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js",
+      "refererWhiteList": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js"
+    },
+    "xframe": {
+      "enable": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js",
+      "value": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js"
+    },
+    "hsts": {
+      "enable": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.local.js",
+      "maxAge": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js",
+      "includeSubdomains": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js"
+    },
+    "dta": {
+      "enable": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js"
+    },
+    "noopen": {
+      "enable": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js"
+    },
+    "nosniff": {
+      "enable": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js",
+      "value": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js"
+    },
+    "xssProtection": {
+      "enable": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js",
+      "value": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js"
+    },
+    "csp": {
+      "enable": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js",
+      "policy": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js",
+      "ipExceptionList": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js",
+      "checkAddress": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js"
+    }
+  },
+  "helper": {
+    "shtml": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-security/config/config.default.js"
+  },
+  "jsonp": {
+    "limit": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-jsonp/config/config.default.js",
+    "callback": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-jsonp/config/config.default.js",
+    "csrf": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-jsonp/config/config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-onerror/config/config.default.js",
+    "appErrorFilter": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-onerror/config/config.default.js",
+    "templatePath": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-onerror/config/config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-i18n/config/config.default.js",
+    "dirs": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-i18n/config/config.default.js",
+    "queryField": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-i18n/config/config.default.js",
+    "cookieField": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-i18n/config/config.default.js",
+    "cookieDomain": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-i18n/config/config.default.js",
+    "cookieMaxAge": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-i18n/config/config.default.js"
+  },
+  "watcher": {
+    "type": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-watcher/config/config.local.js",
+    "eventSources": {
+      "default": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-watcher/config/config.default.js",
+      "development": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-watcher/config/config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-schedule/config/config.default.js",
+      "file": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-schedule/config/config.default.js"
+    }
+  },
+  "schedule": {
+    "directory": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-schedule/config/config.default.js"
+  },
+  "multipart": {
+    "mode": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-multipart/config/config.default.js",
+    "autoFields": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-multipart/config/config.default.js",
+    "defaultCharset": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-multipart/config/config.default.js",
+    "fieldNameSize": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-multipart/config/config.default.js",
+    "fieldSize": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-multipart/config/config.default.js",
+    "fields": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-multipart/config/config.default.js",
+    "fileSize": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-multipart/config/config.default.js",
+    "files": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-multipart/config/config.default.js",
+    "fileExtensions": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-multipart/config/config.default.js",
+    "whitelist": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-multipart/config/config.default.js",
+    "allowArrayField": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-multipart/config/config.default.js",
+    "tmpdir": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-multipart/config/config.default.js",
+    "cleanSchedule": {
+      "cron": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-multipart/config/config.default.js",
+      "disable": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-multipart/config/config.default.js"
+    }
+  },
+  "development": {
+    "watchDirs": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-development/config/config.default.js",
+    "ignoreDirs": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-development/config/config.default.js",
+    "fastReady": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-development/config/config.default.js",
+    "reloadOnDebug": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-development/config/config.default.js",
+    "overrideDefault": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-development/config/config.default.js",
+    "overrideIgnore": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-development/config/config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-logrotator/config/config.default.js",
+    "hourDelimiter": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-logrotator/config/config.default.js",
+    "filesRotateBySize": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-logrotator/config/config.default.js",
+    "maxFileSize": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-logrotator/config/config.default.js",
+    "maxFiles": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-logrotator/config/config.default.js",
+    "rotateDuration": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-logrotator/config/config.default.js",
+    "maxDays": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-logrotator/config/config.default.js"
+  },
+  "static": {
+    "prefix": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-static/config/config.default.js",
+    "dir": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-static/config/config.default.js",
+    "dynamic": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-static/config/config.default.js",
+    "preload": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-static/config/config.default.js",
+    "buffer": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-static/config/config.default.js",
+    "maxFiles": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-static/config/config.default.js"
+  },
+  "view": {
+    "root": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-view/config/config.default.js",
+    "cache": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-view/config/config.local.js",
+    "defaultExtension": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-view/config/config.default.js",
+    "defaultViewEngine": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-view/config/config.default.js",
+    "mapping": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg-view/config/config.default.js"
+  },
+  "env": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+  "name": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+  "cookies": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+  "proxy": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+  "maxIpsCount": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+  "maxProxyCount": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+  "protocolHeaders": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+  "ipHeaders": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+  "hostHeaders": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+  "pkg": {
+    "name": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "version": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "description": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "private": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "egg": {
+      "typescript": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "declarations": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+    },
+    "scripts": {
+      "start": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "stop": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "dev": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "debug": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "test-local": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "test": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "cov": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "tsc": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "ci": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "autod": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "lint": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "clean": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+    },
+    "dependencies": {
+      "egg": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "egg-scripts": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+    },
+    "devDependencies": {
+      "@types/mocha": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "@types/node": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "@types/supertest": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "autod": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "autod-egg": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "egg-ci": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "egg-bin": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "egg-mock": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "tslib": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "eslint": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "eslint-config-egg": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "typescript": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+    },
+    "engines": {
+      "node": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+    },
+    "ci": {
+      "version": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+    },
+    "repository": {
+      "type": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "url": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+    },
+    "eslintIgnore": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "author": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "license": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+  },
+  "baseDir": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+  "HOME": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+  "rundir": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+  "dump": {
+    "ignore": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "notFound": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "sitefile": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "middlewares": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "httpClient": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+  },
+  "bodyParser": {
+    "enable": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "encoding": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "formLimit": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "jsonLimit": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "textLimit": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "strict": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "queryString": {
+      "arrayLimit": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "depth": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "parameterLimit": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+    },
+    "onerror": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+  },
+  "logger": {
+    "dir": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "encoding": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "env": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "level": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "consoleLevel": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "disableConsoleAfterReady": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "outputJSON": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "buffer": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "appLogName": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "coreLogName": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "agentLogName": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "errorLogName": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "coreLogger": {
+      "consoleLevel": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.local.js"
+    },
+    "allowDebugAtProd": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "dnsCacheLookupInterval": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "dnsCacheMaxLength": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "request": {
+      "timeout": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "freeSocketTimeout": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "maxSockets": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "maxFreeSockets": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "freeSocketTimeout": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "maxSockets": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "maxFreeSockets": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "logging": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+  },
+  "coreMiddleware": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+  "workerStartTimeout": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+  "serverTimeout": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "port": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+      "hostname": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js",
+    "responseTimeout": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+  },
+  "onClientError": "/Users/mac/jg_project/monorepo/web_demo/monitor-server/node_modules/egg/config/config.default.js"
+}
