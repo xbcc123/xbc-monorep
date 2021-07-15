@@ -25,7 +25,7 @@ package-lock.json
 
 # Project Specific
 node_modules
-web
+web_demo
 *.log
 lib/
 tmp

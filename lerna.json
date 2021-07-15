@@ -3,6 +3,7 @@
     "components",
     "utils/*",
     "web/*",
+    "web_demo/*",
     "docs/*"
   ],
   "command": {
@@ -14,6 +15,7 @@
         "ignored-file",
         "*.md",
         "web/*",
+        "web_demo/*",
         "docs/*"
       ],
       "message": "chore(release): publish",
