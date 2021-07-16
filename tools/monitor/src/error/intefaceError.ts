@@ -53,13 +53,9 @@ export class IntefaceError {
       let startTime = this.timeRecordArray[i].timeStamp // 接口开始时间
       let endTime = new Date().getTime(); // 接口数据返回时间
       let loadTime = endTime - startTime;  // 接口加载时间
-      // console.log(this.timeRecordArray[i].event.detail);
-
-      // console.log('HTTP_LOG', simpleUrl, url, status, statusText, "发起请求", "", startTime, loadTime);
-      // console.log('HTTP_LOG', simpleUrl, url, status, statusText, "请求返回", "", startTime, loadTime);
 
       const isUpdateOrigin = !!global.___IGNORE_URL_LIST__.find(ignoreUrl => url.indexOf(ignoreUrl) !== -1)
-      if(status !== 200 && !isUpdateOrigin) {
+      if(status !== 200 && status !== 401 && !isUpdateOrigin) {
         let sourceErrorInfo = {
           type: 4,
           errorMsg: '',
@@ -77,7 +73,6 @@ export class IntefaceError {
             loadTime
           }
         }
-        // console.log('我是错误接口', sourceErrorInfo);
         const { errorInfo } =  new SiftAndMakeUpMessage(sourceErrorInfo)
         Upload.send(errorInfo, 'IntefaceError')
       }
