@@ -10,10 +10,11 @@ export class CustomError {
   // 重写console.error 自定义异常
   public createdConsoleError() {
     const oldError = console.error;
-    console.error = function (tempErrorMsg) {
-      var errorMsg = (arguments[0] && arguments[0].message) || tempErrorMsg;
-      var errorObj = arguments[0] && arguments[0].stack;
-        if (!errorObj) {
+    console.error = function (errorMsg) {
+      // console.error 已经被 react-error-overlay 改写 约定新的自定义规则  console.error('c', '')
+      // https://github.com/facebook/create-react-app/blob/main/packages/react-error-overlay/src/effects/proxyConsole.js
+        if (arguments[0] === 'c') {
+          errorMsg = arguments[1]
           if (typeof errorMsg == "object") {
             try {
               errorMsg = JSON.stringify(errorMsg)
@@ -34,6 +35,5 @@ export class CustomError {
         }
         return oldError.apply(console, arguments);
       };
-
   }
 }
