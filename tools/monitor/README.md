@@ -20,6 +20,9 @@ Object.assign(window, { __SYSTEM__: 1, ___IGNORE_URL_LIST__: ['localhost']})
 require("xbc-monitor")
 ```
 
+其他错误可以自动识别，自定义错误使用 console.error('c', xxxx) 
+
+
 ## Notes
 
 - [ ] 支持script引入

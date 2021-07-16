@@ -1,3 +1,4 @@
+import { isIgnoreUrl } from "../utils";
 import { SiftAndMakeUpMessage } from "./siftAndMakeUpMessage";
 import { Upload } from "./upload";
 
@@ -36,64 +37,14 @@ export class IntefaceError {
      if (!this.timeRecordArray[i]) {
         return;
       }
-      let responseText = "";
-      try {
-        // responseText = tempResponseText ? JSON.stringify(utils.encryptObj(JSON.parse(tempResponseText))) : "";
-        responseText = tempResponseText ? JSON.stringify(JSON.parse(tempResponseText)) : "";
-      } catch (e) {
-        responseText = "";
-      }
+      const timeRecord = {...this.timeRecordArray[i]}
+      let url = timeRecord.event.detail.responseURL; // 接口地址
+      let status = timeRecord.event.detail.status;  // 接口数据
 
-      let simpleUrl = this.timeRecordArray[i].simpleUrl; // 请求接口的路由信息
-
-      let url = this.timeRecordArray[i].event.detail.responseURL; // 接口地址
-      let status = this.timeRecordArray[i].event.detail.status;  // 接口数据
-      let statusText = this.timeRecordArray[i].event.detail.statusText; // 接口状态
-
-      let startTime = this.timeRecordArray[i].timeStamp // 接口开始时间
-      let endTime = new Date().getTime(); // 接口数据返回时间
-      let loadTime = endTime - startTime;  // 接口加载时间
-
-      const isUpdateOrigin = !!global.___IGNORE_URL_LIST__.find(ignoreUrl => url.indexOf(ignoreUrl) !== -1)
-      if(status !== 200 && status !== 401 && !isUpdateOrigin) {
-        let sourceErrorInfo = {
-          type: 4,
-          errorMsg: '',
-          url: '',
-          lineNumber: '',
-          columnNumber: '',
-          httpCode: status,
-          errorStack: {
-            simpleUrl,
-            url,
-            status,
-            statusText,
-            startTime,
-            endTime,
-            loadTime
-          }
-        }
-        const { errorInfo } =  new SiftAndMakeUpMessage(sourceErrorInfo)
+      if(status !== 200 && status !== 401 && !isIgnoreUrl(global, url)) {
+        const { errorInfo } =  new SiftAndMakeUpMessage(this.getSourceErrorInfo(timeRecord, tempResponseText))
         Upload.send(errorInfo, 'IntefaceError')
       }
-
-      if(loadTime > 10000) {
-        let sourceErrorInfo = {
-          type: 4,
-          errorMsg: '',
-          url: '',
-          lineNumber: '',
-          columnNumber: '',
-          errorStack: `UncaughtInPromiseError: `
-        }
-        const { errorInfo } =  new SiftAndMakeUpMessage(sourceErrorInfo)
-        Upload.send(errorInfo, 'IntefaceError: 超时接口')
-      }
-
-      // var httpLogInfoStart = new HttpLogInfo('HTTP_LOG', url, status, statusText, "发起请求", this.timeRecordArray[i].timeStamp, 0);
-      // httpLogInfoStart.handleLogInfo('HTTP_LOG', httpLogInfoStart);
-      // var httpLogInfoEnd = new HttpLogInfo('HTTP_LOG', url, status, statusText, "请求返回", currentTime, loadTime);
-      // httpLogInfoEnd.handleLogInfo('HTTP_LOG', httpLogInfoEnd);
 
       // 当前请求成功后就，就将该对象的uploadFlag设置为true, 代表已经上传了
       this.timeRecordArray[i].uploadFlag = true;
@@ -130,17 +81,46 @@ export class IntefaceError {
         }
       }
     });
-    return
+  }
 
-    // 接口请求日志，继承于日志基类MonitorBaseInfo
-    // function HttpLogInfo(uploadType, url, status, statusText, statusResult, currentTime, loadTime) {
-    //   this.uploadType = uploadType;  // 上传类型
-    //   this.httpUrl = url; // 请求地址
-    //   this.status = status; // 接口状态
-    //   this.statusText = statusText; // 状态描述
-    //   this.statusResult = statusResult; // 区分发起和返回状态
-    //   this.happenTime = currentTime;  // 客户端发送时间
-    //   this.loadTime = loadTime; // 接口请求耗时
-    // }
+  // 获取错误信息
+  public getSourceErrorInfo(timeRecord, tempResponseText) {
+
+    let responseText = "";
+    try {
+      responseText = tempResponseText ? JSON.stringify(JSON.parse(tempResponseText)) : "";
+    } catch (e) {
+      responseText = "";
+    }
+
+    let simpleUrl = timeRecord.simpleUrl; // 请求接口的路由信息
+
+    let url = timeRecord.event.detail.responseURL; // 接口地址
+    let status = timeRecord.event.detail.status;  // 接口数据
+    let statusText = timeRecord.event.detail.statusText; // 接口状态
+
+    let startTime = timeRecord.timeStamp // 接口开始时间
+    let endTime = new Date().getTime(); // 接口数据返回时间
+    let loadTime = endTime - startTime;  // 接口加载时间
+
+    let errorStack = JSON.stringify({
+      simpleUrl,
+      url,
+      status,
+      statusText,
+      startTime,
+      endTime,
+      loadTime
+    })
+
+    return {
+      type: 4,
+      errorMsg: responseText,
+      url: '',
+      lineNumber: '',
+      columnNumber: '',
+      httpCode: status,
+      errorStack
+    }
   }
 }

@@ -1,5 +1,14 @@
+
+// 初始化options
+export interface IMonitorInitOptions {
+  /** 系统类型 */
+  __SYSTEM__: number
+  /** 接口上报需要忽略的域名 */
+  ___IGNORE_URL_LIST__: any[]
+}
+
 /* 用户信息 */
-export class User {
+export interface User {
   /** 用户名称 */
   name: string;
   /** 用户昵称 */
@@ -11,11 +20,11 @@ export class User {
 }
 
 /* 报错详细信息 自定义报错会有 */
-export class ErrorObj {
+export interface ErrorObj {
 }
 
 /* 错误信息 */
-export class CommonErrorInfo {
+export interface CommonErrorInfo {
   /** 用户信息 */
   user: User;
   /** ip */
@@ -39,9 +48,9 @@ export class CommonErrorInfo {
   /** 浏览器类型 谷歌，ie, 火狐，欧朋，... */
   browser: string;
   /** 代码出错的行数 自定义报错会有 */
-  lineNumber?: number;
+  lineNumber?: number | string;
   /** 代码出错的列数 自定义报错会有 */
-  columnNumber?: number;
+  columnNumber?: number | string;
   errorObj?: ErrorObj;
   /** 接口异常时候会有 http状态码.... */
   httpCode?: number;

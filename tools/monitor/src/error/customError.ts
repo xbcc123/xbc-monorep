@@ -28,7 +28,7 @@ export class CustomError {
             url: '',
             lineNumber: '',
             columnNumber: '',
-            errorStack: `CustomizeError: ${errorMsg}`
+            errorStack: errorMsg
           }
           const { errorInfo } =  new SiftAndMakeUpMessage(sourceErrorInfo)
           Upload.send(errorInfo, 'CustomizeError')

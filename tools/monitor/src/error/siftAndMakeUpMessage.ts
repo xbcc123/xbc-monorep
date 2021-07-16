@@ -1,6 +1,7 @@
 // 错误上报
 
-import { CommonErrorInfo } from "./commonErrorInfo";
+import { CommonErrorInfo } from "../types";
+
 
 export class SiftAndMakeUpMessage {
   sourceErrorInfo: any;
