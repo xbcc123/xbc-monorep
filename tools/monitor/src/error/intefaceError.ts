@@ -58,7 +58,7 @@ export class IntefaceError {
       // console.log('HTTP_LOG', simpleUrl, url, status, statusText, "发起请求", "", startTime, loadTime);
       // console.log('HTTP_LOG', simpleUrl, url, status, statusText, "请求返回", "", startTime, loadTime);
 
-      const isUpdateOrigin =  url.indexOf(global.__UPDATE_ORIGIN__) !== -1
+      const isUpdateOrigin = !!global.___IGNORE_URL_LIST__.find(ignoreUrl => url.indexOf(ignoreUrl) !== -1)
       if(status !== 200 && !isUpdateOrigin) {
         let sourceErrorInfo = {
           type: 4,
@@ -94,7 +94,6 @@ export class IntefaceError {
         const { errorInfo } =  new SiftAndMakeUpMessage(sourceErrorInfo)
         Upload.send(errorInfo, 'IntefaceError: 超时接口')
       }
-
 
       // var httpLogInfoStart = new HttpLogInfo('HTTP_LOG', url, status, statusText, "发起请求", this.timeRecordArray[i].timeStamp, 0);
       // httpLogInfoStart.handleLogInfo('HTTP_LOG', httpLogInfoStart);

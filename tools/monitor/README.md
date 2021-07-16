@@ -10,11 +10,16 @@ npm i xbc-monitor -S
 
 ## Usage
 
-项目入口引入
+SPA 项目入口引入
 
 ```
 # index.tsx
-
-window.__SYSTEM__ = 1 // 系统名称
-import "xbc-monitor"
+// __SYSTEM__ 系统名称
+// ___IGNORE_URL_LIST__ 接口上报需要忽略的域名， 必填上报接口域名
+Object.assign(window, { __SYSTEM__: 1, ___IGNORE_URL_LIST__: ['localhost']})
+require("xbc-monitor")
 ```
+
+## Notes
+
+- [ ] 支持script引入

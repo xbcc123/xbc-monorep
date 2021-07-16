@@ -6,7 +6,6 @@ import { InitOptions } from './options';
 import { IMonitorInitOptions } from '../types';
 import { InitAsyncData } from './initAsyncData';
 
-
 // 脚本初始化
 export class MonitorInit {
   options: IMonitorInitOptions
@@ -17,8 +16,8 @@ export class MonitorInit {
     console.log('monitor--初始化完成');
   }
   init() {
-    new InitAsyncData()
     new InitOptions(this.options)
+    new InitAsyncData()
     new JsError()
     new CustomError()
     new IntefaceError()

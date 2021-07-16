@@ -1,3 +1,6 @@
 import { MonitorInit } from './monitorInit'
 
-export default MonitorInit
+// 初始化
+const { __SYSTEM__ = '', ___IGNORE_URL_LIST__ =  [] } = window as any
+new MonitorInit({__SYSTEM__, ___IGNORE_URL_LIST__})
+
