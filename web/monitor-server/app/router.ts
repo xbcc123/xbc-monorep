@@ -9,6 +9,6 @@ export default (app: Application) => {
   router.post('/api/error', controller.error.create);
 
   // 获取错误上报信息
-  router.get('/api/getError', controller.error.get);
+  router.get('/api/getError', controller.error.list);
 
 };

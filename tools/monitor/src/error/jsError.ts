@@ -45,7 +45,7 @@ export class JsError {
         errorStack: `UncaughtInPromiseError: ${errorStack}`
       }
       const { errorInfo } =  new SiftAndMakeUpMessage(sourceErrorInfo)
-      Upload.send(errorInfo, 'onunhandledrejection')
+      // Upload.send(errorInfo, 'onunhandledrejection')
     }
   }
 

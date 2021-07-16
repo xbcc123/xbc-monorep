@@ -15,9 +15,20 @@ export default (appInfo: EggAppInfo) => {
     sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
   };
 
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+  };
+
+  config.security = {
+    csrf: {
+      enable: false
+    },
+  }
+
   config.mongoose = {
     client: {
-      url: 'mongodb://127.0.0.1:27017',
+      url: 'mongodb://127.0.0.1:27017/error',
       options: {},
       // mongoose global plugins, expected a function or an array of function and options
       // plugins: [createdPlugin, [updatedPlugin, pluginOptions]],

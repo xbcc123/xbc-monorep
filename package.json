@@ -7,7 +7,9 @@
     "clean": "lerna clean && rm -rf node_modules",
     "build": "lerna run build",
     "publish": "yarn run build && lerna version patch --no-private --yes && lerna publish from-package",
-    "test": "lerna run test"
+    "test": "lerna run test",
+    "dev:monitor-server": " lerna run --scope monitor-server dev",
+    "dev:monitor": " lerna run --scope xbc-monitor dev"
   },
   "author": "yankangjie<287207951@qq.com>",
   "devDependencies": {

@@ -3,34 +3,47 @@ import { Service } from 'egg';
 /**
  * Error Service
  */
-export default class Error extends Service {
+export default class ErrorService extends Service {
 
+  // 插入数据
   public async create(req) {
-    console.log(req);
-    // const app: any = this.app
-    // const mongoose = app.mongoose;
-    // const Schema = mongoose.Schema;
-
-    // const UserSchema = new Schema({
-    //   userName: { type: String  },
-    //   password: { type: String  },
-    // });
-
-    // return mongoose.model('User', UserSchema);
-
-    const results = "错误数据"
-    // const results = await app.mysql.insert('cat_txt', req);
-    return results;
+    this.ctx.model.ErrorModel.insertMany(req)
   }
 
   // 获取数据展示
-  public async list() {
-    // const { app } = this;
-    const results = {};
-    // const options = { where: { type: req.type }, offset: Number(req.page) - 1, limit: Number(req.rows) };
-    // const results = {};
-    // results.data = await app.mysql.select('cat_txt', options);
-    // results.rowSize = await app.mysql.count('cat_txt', { type: req.type });
+  public async list(req) {
+    req = {...req}
+    let results: any = {}, total: any[] = []
+
+    // 分页处理
+    req.rows = Number(req.rows)
+    req.page = req.page - 1
+
+    // 参数处理
+    let options: any = {}
+    const { ip, city, path, type, system, errorMessage, fileUrl, domain, browser, httpCode } = req
+    options = {
+      ip,
+      city,
+      path,
+      type,
+      system,
+      errorMessage,
+      fileUrl,
+      domain,
+      browser,
+      httpCode
+    }
+    for (const key in options) {
+      if(options[key] === undefined) {
+        delete options[key]
+      }
+    }
+
+    // 查询数据
+    results.list = await this.ctx.model.ErrorModel.find(options).skip(req.page * req.rows || 0).limit(req.rows || null)
+    total = await this.ctx.model.ErrorModel.find()
+    results.totalSize = total.length
     return results;
   }
 

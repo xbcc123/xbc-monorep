@@ -14,7 +14,7 @@ export class SiftAndMakeUpMessage {
       "name":"张三",
       "cName":"滴答",
       "phone": "13545199216",
-      "id":"sdfkljsdfj233ksdfsdf",
+      "id": 100,
     }
   }
 

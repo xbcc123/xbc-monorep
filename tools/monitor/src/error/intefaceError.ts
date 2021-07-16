@@ -24,6 +24,7 @@ export class IntefaceError {
       realXHR.addEventListener('progress', function () { ajaxEventTrigger.call(this, 'ajaxProgress'); }, false);
       realXHR.addEventListener('timeout', function () { ajaxEventTrigger.call(this, 'ajaxTimeout'); }, false);
       realXHR.addEventListener('readystatechange', function () { ajaxEventTrigger.call(this, 'ajaxReadyStateChange'); }, false);
+      // 此处的捕获的异常会连日志接口也一起捕获，如果日志上报接口异常了，就会导致死循环了。
       return realXHR;
     }
     window.XMLHttpRequest = newXHR as any;
@@ -31,6 +32,7 @@ export class IntefaceError {
 
   // 对收集到的http对象进行处理
   public handleHttpResult(i, tempResponseText) {
+     let global = window as any
      if (!this.timeRecordArray[i]) {
         return;
       }
@@ -56,7 +58,8 @@ export class IntefaceError {
       // console.log('HTTP_LOG', simpleUrl, url, status, statusText, "发起请求", "", startTime, loadTime);
       // console.log('HTTP_LOG', simpleUrl, url, status, statusText, "请求返回", "", startTime, loadTime);
 
-      if(status !== 200 ) {
+      const isUpdateOrigin =  url.indexOf(global.__UPDATE_ORIGIN__) !== -1
+      if(status !== 200 && !isUpdateOrigin) {
         let sourceErrorInfo = {
           type: 4,
           errorMsg: '',
@@ -74,6 +77,7 @@ export class IntefaceError {
             loadTime
           }
         }
+        // console.log('我是错误接口', sourceErrorInfo);
         const { errorInfo } =  new SiftAndMakeUpMessage(sourceErrorInfo)
         Upload.send(errorInfo, 'IntefaceError')
       }
@@ -109,7 +113,7 @@ export class IntefaceError {
       var tempObj = {
         timeStamp: new Date().getTime(),
         event: e,
-        simpleUrl: window.location.href.split('?')[0].replace('#', ''),
+        simpleUrl: window.location.href.split('?')[0],
         uploadFlag: false,
       }
       self.timeRecordArray.push(tempObj)
