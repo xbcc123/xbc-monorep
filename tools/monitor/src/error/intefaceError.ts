@@ -85,7 +85,6 @@ export class IntefaceError {
 
   // 获取错误信息
   public getSourceErrorInfo(timeRecord, tempResponseText) {
-
     let responseText = "";
     try {
       responseText = tempResponseText ? JSON.stringify(JSON.parse(tempResponseText)) : "";
