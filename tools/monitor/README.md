@@ -28,6 +28,32 @@ index.html开头引入获取ip和地址
 
 其他错误可以自动识别，自定义错误使用 console.error('c', xxxx)
 
+## Eg
+
+js异常
+
+```
+aaa()
+```
+
+自定义异常
+
+```
+console.error('c', xxxx)
+```
+
+静态资源异常
+
+```
+<img src="aaaa.jpg"/>
+```
+
+接口异常
+
+```
+axios.get('http://127.2.2.1:7001/api/aaaa')
+```
+
 ## Notes
 
 - [ ] script引入
