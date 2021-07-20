@@ -54,5 +54,9 @@ export interface CommonErrorInfo {
   errorObj?: ErrorObj;
   /** 接口异常时候会有 http状态码.... */
   httpCode?: number;
+
+  // 扩展
+  /** 浏览器信息 */
+  userAgent?: any
 }
 

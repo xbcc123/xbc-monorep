@@ -132,6 +132,9 @@ export class SiftAndMakeUpMessage {
       errorMessage: this.getErrorMessage(),
       errorObj: this.geterrorObj(),
       httpCode: this.getHttpCode(),
+
+      // 扩展
+      userAgent: window.navigator.userAgent
     }
   }
 
