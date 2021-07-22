@@ -1,5 +1,3 @@
-const fs = require('fs-extra');
-const path = require('path');
 const sm = require('source-map');
 // const colors = require('colors')
 const axios = require('axios')
@@ -34,21 +32,16 @@ export class SourceMap {
     file: string;
     sourceMapFile: string;
     rawSourceMap: any;
-    pwd: string
     constructor(line, column, file) {
-        // const pwd = path.resolve(__dirname)
-        this.pwd = '/Users/mac/jg_project/monorepo/web_demo/cratest'
         this.line = line
         this.column = column
         this.file = file
-        // this.file = `${this.pwd}${this.file}`
         this.sourceMapFile = `${this.file}.map`
     }
 
     public getPos(): Promise<IPos> {
         return axios.get(this.sourceMapFile).then((rawSourceMap) => {
             this.rawSourceMap = rawSourceMap.data
-            // this.rawSourceMap = JSON.parse(readFileSync(this.sourceMapFile, 'utf8'));
             return SourceMapConsumer.with(this.rawSourceMap, null, consumer => {
                 let pos = null
                 let resultPos = {}
@@ -71,7 +64,6 @@ export class SourceMap {
                         values: error
                     }
                 }
-                // console.log(resultPos);
                 return resultPos
             })
         })
