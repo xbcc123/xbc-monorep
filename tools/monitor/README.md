@@ -1,6 +1,6 @@
 ## monitor
 
-错误监控SDK
+监控SDK
 
 ## Install
 
