@@ -1,0 +1,15 @@
+{
+  "name": "xbc-source-map",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc --project ./tsconfig.json --watch --incremental",
+    "build": "tsc -b"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "source-map": "^0.7.3"
+  }
+}
