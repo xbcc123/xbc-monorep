@@ -17,7 +17,8 @@ interface IinfoPos {
 
 interface IPos {
     status: 'success' | 'error',
-    values: IinfoPos
+    values?: IinfoPos
+    errorInfo?: any
 }
 
 /**
@@ -39,32 +40,44 @@ export class SourceMap {
         this.sourceMapFile = `${this.file}.map`
     }
 
+    // 获取 开发文件信息
     public getPos(): Promise<IPos> {
-        return axios.get(this.sourceMapFile).then((rawSourceMap) => {
-            this.rawSourceMap = rawSourceMap.data
-            return SourceMapConsumer.with(this.rawSourceMap, null, consumer => {
-                let pos = null
-                let resultPos = {}
-                try {
-                    pos = consumer.originalPositionFor({
-                        line: this.line,   // 报错的行
-                        column: this.column  // 报错的列
-                    });
+        return new Promise((resolve, reject) => {
 
-                    // 文件查找成功
-                    resultPos = {
-                        status: 'success',
-                        values: pos
-                    }
-                } catch (error) {
+            // 获取 map json
+            return axios.get(this.sourceMapFile).then((rawSourceMap) => {
+                this.rawSourceMap = rawSourceMap.data
 
-                    // 文件查找错误
-                    resultPos = {
-                        status: 'error',
-                        values: error
+                // 执行查找
+                return SourceMapConsumer.with(this.rawSourceMap, null, consumer => {
+
+                    try {
+                        let pos = consumer.originalPositionFor({
+                            line: this.line,   // 报错的行
+                            column: this.column  // 报错的列
+                        });
+
+                        // 文件查找成功
+                        resolve({
+                            status: 'success',
+                            values: pos
+                        })
+                    } catch (error) {
+
+                        // 文件查找错误
+                        reject({
+                            status: 'error',
+                            errorInfo: error
+                        })
                     }
-                }
-                return resultPos
+                })
+            }).catch(error => {
+
+                // 文件查找错误
+                reject({
+                  status: 'error',
+                  errorInfo: error
+              })
             })
         })
     }
