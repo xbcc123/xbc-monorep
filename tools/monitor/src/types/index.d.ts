@@ -20,8 +20,8 @@ export interface User {
 }
 
 /* 报错详细信息 自定义报错会有 */
-export interface ErrorObj {
-}
+// export interface ErrorObj {
+// }
 
 /* 错误信息 */
 export interface CommonErrorInfo {
@@ -51,12 +51,14 @@ export interface CommonErrorInfo {
   lineNumber?: number | string;
   /** 代码出错的列数 自定义报错会有 */
   columnNumber?: number | string;
-  errorObj?: ErrorObj;
+  errorObj?: string;
   /** 接口异常时候会有 http状态码.... */
   httpCode?: number;
 
   // 扩展
   /** 浏览器信息 */
-  userAgent?: any
+  userAgent: any
+  /** js异常 soucemap 未解析的信息 */
+  errorSourceContent?: any
 }
 

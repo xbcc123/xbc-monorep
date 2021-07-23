@@ -37,8 +37,8 @@ export class SiftAndMakeUpMessage {
   }
 
   // 获取详细错误信息
-  geterrorObj() {
-    const { errorStack } = this.sourceErrorInfo
+  getErrorObj() {
+    const { errorStack, type } = this.sourceErrorInfo
     return errorStack
   }
 
@@ -51,16 +51,6 @@ export class SiftAndMakeUpMessage {
     }
   }
 
-  // 获取错误类型
-  // getType() {
-  //   return ""
-  // }
-
-  // 获取系统类型
-  // getSystem() {
-  //   return ""
-  // }
-
   // 获取错误信息
   getErrorMessage() {
     const { errorMsg } = this.sourceErrorInfo
@@ -70,6 +60,23 @@ export class SiftAndMakeUpMessage {
   // 错误脚本
   getFileUrl() {
     return ""
+  }
+
+  // js 异常字段
+  getErrorSourceContent() {
+    const { errorStack } = this.sourceErrorInfo
+    const newErrorStack = JSON.stringify(errorStack)
+    const lineColumn = newErrorStack.split('at ')[1].split('.js:')[1].split(')')[0]
+    const temporary = newErrorStack.split('at ')[1].split('(')[1].split(')')[0].split(':')
+    const line = lineColumn.split(':')[0]
+    const column = lineColumn.split(':')[1]
+    const fileUrl = `${temporary[0]}:${temporary[1]}:${temporary[2]}`
+    console.log(newErrorStack.split('at ')[1].split('(')[1].split(')')[0].split(':'));
+
+    // console.log(newErrorStack, newErrorStack.split('at ')[1], line, column, fileUrl);
+    // console.log(aa.split('at ')[1].split('.js:')[1].split(')')[0]);
+
+    return errorStack
   }
 
   // 浏览器
@@ -84,6 +91,7 @@ export class SiftAndMakeUpMessage {
     (s = ua.match(/(?:opera|opr).([\d\.]+)/)) ? Sys.opera = s[1] :
     (s = ua.match(/chrome\/([\d\.]+)/)) ? Sys.chrome = s[1] :
     (s = ua.match(/version\/([\d\.]+).*safari/)) ? Sys.safari = s[1] : 0;
+
      // 根据关系进行判断
     if (Sys.ie) return ('IE: ' + Sys.ie);
     if (Sys.edge) return ('EDGE: ' + Sys.edge);
@@ -92,16 +100,6 @@ export class SiftAndMakeUpMessage {
     if (Sys.opera) return ('Opera: ' + Sys.opera);
     if (Sys.safari) return ('Safari: ' + Sys.safari);
     return 'Unkonwn';
-  }
-
-  // 错误行
-  getLineNmber() {
-    return ""
-  }
-
-  // 错误列
-  getCloumnNumber() {
-    return ""
   }
 
   // http状态码
@@ -130,11 +128,12 @@ export class SiftAndMakeUpMessage {
       columnNumber,
       fileUrl,
       errorMessage: this.getErrorMessage(),
-      errorObj: this.geterrorObj(),
+      errorObj: this.getErrorObj(),
       httpCode: this.getHttpCode(),
 
       // 扩展
-      userAgent: window.navigator.userAgent
+      userAgent: window.navigator.userAgent,
+      errorSourceContent: type === 1 ? this.getErrorSourceContent() : ''
     }
   }
 
