@@ -4,7 +4,7 @@ const axios = require('axios')
 
 // const { readFileSync } = fs;
 const { SourceMapConsumer } = sm;
-interface IinfoPos {
+export interface IinfoPos {
     /** 文件路径 */
     source: string
     /** 行 */
@@ -15,7 +15,7 @@ interface IinfoPos {
     name: string
 }
 
-interface IPos {
+export interface IPos {
     status: 'success' | 'error',
     values?: IinfoPos
     errorInfo?: any
