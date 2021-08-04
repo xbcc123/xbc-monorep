@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.build",
+  "compilerOptions": {
+    "outDir": "./es",
+    "target": "es6",
+    "typeRoots": [
+      "node_modules/@types",
+      "types"
+    ]
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
