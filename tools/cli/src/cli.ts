@@ -1,7 +1,6 @@
-// import arg from 'arg';
-// import inquirer from 'inquirer';
 const arg = require('arg')
 const inquirer = require('inquirer')
+const { createProject } = require("./main")
 
 // 解析命令行参数为 options
 function parseArgumentsIntoOptions(rawArgs) {
@@ -68,10 +67,11 @@ async function promptForMissingOptions(options) {
  }
 
 export async function cli(args) {
-    console.log(args);
+    // console.log(args);
     // 获取命令行配置
     let options = parseArgumentsIntoOptions(args);
-    console.log(options);
+    // console.log(options);
     options = await promptForMissingOptions(options);
-    console.log(options);
+    // console.log(options);
+    await createProject(options);
 }
