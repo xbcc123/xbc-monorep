@@ -1,0 +1,18 @@
+{
+  "name": "xbc-source-map",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+   "typings": "lib/index.d.ts",
+  "scripts": {
+    "dev": "tsc --project ./tsconfig.json --watch --incremental",
+    "build": "tsc -b"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "colors": "^1.4.0",
+    "source-map": "^0.7.3"
+  }
+}

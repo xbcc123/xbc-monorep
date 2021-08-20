@@ -2,6 +2,7 @@
   "packages": [
     "components",
     "utils/*",
+    "tools/*",
     "web/*",
     "web_demo/*",
     "docs/*"

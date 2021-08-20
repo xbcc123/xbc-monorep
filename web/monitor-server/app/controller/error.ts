@@ -1,5 +1,7 @@
 import { Controller } from 'egg';
 import moment from 'moment'
+import { changeLineColumnFile } from '../utils/error';
+
 export default class HomeController extends Controller {
 
   // 收集 上报的错误数据
@@ -7,6 +9,8 @@ export default class HomeController extends Controller {
     let req = this.ctx.request.body;
     const otherParams = { creatTime: moment(new Date()).format('YYYY-MM-DD HH:mm:ss') };
     req = Object.assign({}, req, otherParams);
+    req = await changeLineColumnFile(req)
+
     this.service.error.create(req)
     this.ctx.body = {
       code: 200,

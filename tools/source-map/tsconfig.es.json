@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.build",
+  "compilerOptions": {
+    "outDir": "./es",
+    "target": "es6",
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
