@@ -1,13 +1,7 @@
 const puppeteer = require('puppeteer');
 const lighthouse = require('lighthouse');
-// import lighthouse from "lighthouse"
 const fs = require('fs')
 const config = require('./custom-config.js');
-
-
-// import puppeteer from 'puppeteer'
-
-// declare type puppeteer = any
 
 // 性能检测
 class PerformanceMonitor {
@@ -122,7 +116,7 @@ class PerformanceMonitor {
     // }
     const options = {logLevel: 'info', output: 'html', screenEmulation: {width: 1920, height: 1080, deviceScaleFactor: 0, mobile: false, disabled: true }, emulatedUserAgent: true, formFactor: 'desktop', onlyCategories: ['performance'], port: new URL(browser.wsEndpoint()).port};
     // 开始检测
-    const { artifacts, lhr, report } = await lighthouse('https://www.taobao.com', options, config);
+    const { artifacts, lhr, report } = await lighthouse('https://test-kepler-pick.jpushoa.com/#/app/index', options, config);
     // 回填数据
     passContext.lhr = lhr;
     passContext.artifacts = artifacts;
