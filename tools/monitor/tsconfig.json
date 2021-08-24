@@ -5,7 +5,7 @@
     "target": "es5",
     "typeRoots": [
       "node_modules/@types",
-      "types"
+      "src/types"
     ]
   },
   "include": [

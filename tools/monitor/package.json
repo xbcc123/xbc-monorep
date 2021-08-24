@@ -6,19 +6,24 @@
   "typings": "lib/index.d.ts",
   "homepage": "https://github.com/xbcc123/xbc-monorep/tree/main/tools/xbc-monitor",
   "scripts": {
-    "dev": "tsc --project ./tsconfig.json --watch --incremental",
-    "build": "tsc -b"
+    "dev": "tsc -p ./tsconfig.es.json --watch --incremental",
+    "build": "tsc & tsc -p ./tsconfig.es.json &  webpack --config ./config/webpack.config.js"
   },
   "dependencies": {
-    "@types/puppeteer": "^5.4.4",
     "axios": "^0.21.1",
     "colors": "^1.1.2",
     "fs-extra": "^7.0.0",
     "lighthouse": "^8.1.0",
     "open": "^8.2.1",
     "puppeteer": "^10.1.0",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "webpack": "^4.46.0"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.15.0",
+    "ts-loader": "^9.2.5",
+    "webpack-cli": "^3.3.12"
+  }
 }

@@ -1,33 +1,30 @@
-// const puppeteer = require('puppeteer');
-// const lighthouse = require('lighthouse');
-import puppeteer from 'puppeteer'
-import lighthouse from 'lighthouse'
+import { RunOptions } from "../types/performance";
+
+const puppeteer = require('puppeteer');
+const lighthouse = require('lighthouse');
 const fs = require('fs')
 const config = require('./custom-config.js');
 
 // 性能检测
-class PerformanceMonitor {
-  constructor() {
-
-  }
+export  class PerformanceMonitor {
 
   /**
     * 执行页面信息收集
     *
     */
-  async run(runOptions) {
-    // const gathererResults = {};
+  async run(runOptions: RunOptions) {
+    const gathererResults = {};
     // 使用 Puppeteer 创建无头浏览器，创建页面
     const passContext = await this.prepare();
     try {
-      // 根据用户是否输入了用户名和密码判断是否要登录政采云
+      // 根据用户是否输入了用户名和密码判断是否要登录
       await this.preLogin(passContext, runOptions);
       // 页面打开前的钩子函数 :TODO
-      // await this.beforePass(passContext);
+      await this.beforePass(passContext);
       // 打开页面，获取页面数据
       await this.getLhr(passContext, runOptions);
       // 页面打开后的钩子函数 :TODO
-      // await this.afterPass(passContext, gathererResults);
+      await this.afterPass(passContext, gathererResults);
       // 收集页面性能
       return await this.collectArtifact(passContext);
     } catch (error) {
@@ -54,9 +51,21 @@ class PerformanceMonitor {
     return passContext.runnerResults
   }
 
-  afterPass(passContext, gathererResults) {
-    // throw new Error('Method not implemented.');
+  /**
+    * 执行所有收集器中的 afterPass 方法
+    *
+    */
+  async afterPass(passContext, gathererResults) {
+    const { page, gatherers } = passContext;
+    // 遍历所有收集器，执行 afterPass 方法
+    for (const gatherer of gatherers) {
+      const gathererResult = await gatherer.afterPass(passContext);
+      gathererResults[gatherer.name] = gathererResult;
+    }
+    // 执行完所有方法后截图记录
+    gathererResults.screenshotBuffer = await page.screenshot();
   }
+
 
   beforePass(passContext) {
     // throw new Error('Method not implemented.');
@@ -109,7 +118,6 @@ class PerformanceMonitor {
   /**
   * 在 Puppeteer 中使用 Lighthouse
   *
-  * @param {RunOptions} runOptions
   */
   async getLhr(passContext, runOptions) {
     // 获取浏览器对象和检测链接
@@ -131,7 +139,6 @@ class PerformanceMonitor {
       port: new URL(browser.wsEndpoint()).port
     };
     passContext.runnerResults = []
-    console.log(`%c开始检测页面 ${urls}`, 'color: red');
     // 开始检测
     for (const item of urls) {
       passContext.runnerResults.push({

@@ -21,5 +21,7 @@ export interface PerformanceInfo {
   /** lighthouse 生成的数据 */
   lighthouseResult: any,
   /** 自定义计算的数据 */
-  customResult: any
+  customResult: any,
+  /** origin */
+  origin: string
 }
