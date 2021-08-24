@@ -19,15 +19,24 @@ export interface RunOptions{
   password?: string
 }
 
+// 上下文
+export interface PassContext{
+  /* 性能数据 */
+  runnerResults?: PerformanceInfo[];
+  /* 浏览器实例 */
+  browser?: any
+  /* 页面实例 */
+  page?: any
+}
 
 // 收集到的数据
 export interface PerformanceInfo {
   /** 检测地址 */
-  url: string,
+  url?: string,
   /** lighthouse 生成的数据 */
-  lighthouseResult: any,
+  lighthouseResult?: any,
   /** 自定义计算的数据 */
-  customResult: any,
+  customResult?: any,
   /** origin */
-  origin: string
+  origin?: string
 }
