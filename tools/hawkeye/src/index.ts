@@ -1,5 +1,8 @@
-import { RunOptions } from "./types/performance";
-
+import { RunOptions } from '../types'
+import { Login } from './login/login';
+import { LoginToApi } from './login/loginToApi';
+import { LoginToCode } from './login/loginToCode';
+import { LoginContext } from './model';
 const puppeteer = require('puppeteer');
 const lighthouse = require('lighthouse');
 const fs = require('fs')
@@ -15,7 +18,7 @@ export class PerformanceMonitor {
   async run(runOptions: RunOptions) {
     const gathererResults = {};
     // 使用 Puppeteer 创建无头浏览器，创建页面
-    const passContext = await this.prepare();
+    const passContext = await this.prepare(runOptions);
     try {
       // 根据用户是否输入了用户名和密码判断是否要登录
       await this.preLogin(passContext, runOptions);
@@ -66,42 +69,30 @@ export class PerformanceMonitor {
     gathererResults.screenshotBuffer = await page.screenshot();
   }
 
-
   beforePass(passContext) {
     // throw new Error('Method not implemented.');
   }
 
-  async preLogin(passContext, runOptions) {
-    const { page } = passContext
-    const { urls, isAuth, loginUrl, loginedUrl, origin } = runOptions
-    if (!isAuth) {
-      return
+  async preLogin(passContext, runOptions: RunOptions) {
+    const { loginType } = runOptions
+    let loginTypeMap: any = {
+      0: async () => {},
+      1: new LoginContext(new LoginToApi()),
+      2: new LoginContext(new Login()),
+      3: new LoginContext(new LoginToCode()),
     }
-    await page.goto(`${origin}${urls[0]}`);
-    //代码中监听跳转事件
-    if (page.url() === `${origin}${loginUrl}`) {
-      console.log('需要输入验证码');
-      //等待再一次跳转
-      while (true) {
-        await page.waitForNavigation()
-        console.log(page.url())
-        if (page.url() === `${origin}${loginedUrl}`) {
-          console.log('登录成功');
-          break;
-        }
-      }
-    }
+    loginTypeMap[loginType].run(passContext, runOptions)
   }
 
   /**
     * 登录前准备工作，创建浏览器和页面
     *
     */
-  async prepare() {
+  async prepare(runOptions: RunOptions) {
+    const { loginType } = runOptions
     // puppeteer 启动的配置项
     const launchOptions = {
-      headless: false, // 是否无头模式
-      devtool: true,
+      headless: loginType !== 3, // 是否无头模式
       defaultViewport: { width: 1920, height: 1080 }, // 指定打开页面的宽高
       // 浏览器实例的参数配置，具体配置可以参考此链接：https://peter.sh/experiments/chromium-command-line-switches/
       args: ['--no-sandbox', '--disable-dev-shm-usage'],
@@ -149,11 +140,3 @@ export class PerformanceMonitor {
     console.log('%c检测完成', 'color: red');
   }
 }
-
-// new PerformanceMonitor().run({
-//   urls: ['app/index', 'app/tools'],
-//   origin: 'https://test-kepler-pick.jpushoa.com/#/',
-//   loginUrl: 'login',
-//   loginedUrl: 'app/index',
-//   isAuth: true
-// })

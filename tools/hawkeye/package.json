@@ -1,13 +1,13 @@
 {
-  "name": "xbc-monitor",
+  "name": "xbc-hawkeye",
   "version": "0.0.11",
   "description": "",
   "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
-  "homepage": "https://github.com/xbcc123/xbc-monorep/tree/main/tools/xbc-monitor",
+  "typings": "types/index.d.ts",
+  "homepage": "",
   "scripts": {
-    "dev": "tsc -p ./tsconfig.es.json --watch --incremental",
-    "build": "tsc & tsc -p ./tsconfig.es.json &  webpack --config ./config/webpack.config.js"
+    "dev": "tsc --watch --incremental",
+    "build": "tsc"
   },
   "dependencies": {
     "axios": "^0.21.1",
