@@ -1,4 +1,5 @@
-import { PassContext, RunOptions } from '../types'
+import { PassContext, RunOptions, RunOptionsContext } from '../types'
+import DOMStats from './DOMStats';
 import { Login } from './login/login';
 import { LoginToApi } from './login/loginToApi';
 import { LoginToCode } from './login/loginToCode';
@@ -20,20 +21,37 @@ export class PerformanceMonitor {
   async run(runOptions: RunOptions) {
     console.log(chalk.blue(`执行脚本`));
 
+    // 初始化插件
+    let runOptionsContext: RunOptionsContext = {
+      runOptions: {
+        ...runOptions,
+        ...{ gathererPlugs: [ DOMStats ] }
+      },
+      urls: runOptions.urls.map(item => {
+        return {
+          url: item,
+          urlKey: `${item},${Math.ceil(Math.random() * 1000000000)}`
+        }
+      })
+    }
+    runOptions = runOptionsContext.runOptions
 
-    // const gathererResults = {};
     // 使用 Puppeteer 创建无头浏览器，创建页面
     const passContext = await this.prepare(runOptions);
+    passContext.runnerResults = runOptionsContext.urls
+
     try {
       // 根据用户是否输入了用户名和密码判断是否要登录
       await this.preLogin(passContext, runOptions);
-      // 页面打开前的钩子函数 :TODO
-      // await this.beforePass(passContext);
-      // 打开页面，获取页面数据
-      await this.getLhr(passContext, runOptions);
-      // 页面打开后的钩子函数 :TODO
-      // await this.afterPass(passContext, gathererResults);
-      // 收集页面性能
+
+      console.log(chalk.blue(`开始循环检测`));
+      // 开始检测
+      for (const { url, urlKey } of runOptionsContext.urls) {
+        // 循环收集页面性能数据
+         await this.getPerformance(passContext, runOptions, urlKey)
+      }
+
+      // 计算页面性能
       return await this.collectArtifact(passContext);
     } catch (error) {
       throw error;
@@ -43,49 +61,70 @@ export class PerformanceMonitor {
     }
   }
 
+  /* 关闭浏览器 */
   disposeDriver(passContext: PassContext) {
     const { browser } = passContext
     browser.close();
   }
 
-  collectArtifact(passContext: PassContext) {
-    console.log(chalk.blue(`开始生成${passContext.runnerResults.length}个文件`));
-    for (const currentResult of passContext.runnerResults) {
-      fs.writeFileSync(`${process.cwd()}/pass${currentResult.url.split('/').slice(-1)}.html`, currentResult.lighthouseResult.report)
-      fs.writeFileSync(`${process.cwd()}/pass${currentResult.url.split('/').slice(-1)}}.json`, JSON.stringify(currentResult.lighthouseResult.lhr))
-    }
-    // for (let i = 0; i < passContext.runnerResults.length; i++) {
-    //   currentResult = passContext.runnerResults[i]
-    //   fs.writeFileSync(`${process.cwd()}/pass${i}.html`, currentResult.lighthouseresult.report)
-    //   fs.writeFileSync(`${process.cwd()}/pass${i}.json`, JSON.stringify(currentResult.lighthouseresult.lhr))
+  /* 循环执行性能数据搜集 */
+  async getPerformance(passContext: PassContext, runOptions: RunOptions, urlKey) {
+    // 页面打开前的钩子函数
+    await this.beforePass(passContext, runOptions);
+    // 打开页面，获取页面数据
+    await this.getLhr(passContext, runOptions, urlKey);
+    // 页面打开后的钩子函数
+    await this.afterPass(passContext, runOptions, urlKey);
+  }
+
+  async collectArtifact(passContext: PassContext) {
+    // console.log(chalk.blue(`开始生成文件，页面数量${passContext.runnerResults.length}`));
+    console.log(chalk.blue(`开始生成最终数据，页面数量${passContext.runnerResults.length}`));
+    // for (const currentResult of passContext.runnerResults) {
+    //   fs.writeFileSync(`${process.cwd()}/${currentResult.url.replace(/\//g, '%')}.html`, currentResult.lighthouseResult.report)
+    //   fs.writeFileSync(`${process.cwd()}/${currentResult.url.replace(/\//g, '%')}.json`, JSON.stringify(currentResult.lighthouseResult.lhr))
     // }
-    return passContext.runnerResults
+    return await passContext.runnerResults
+  }
+
+  /* 调用收集器插件 */
+  async beforePass(passContext: PassContext, runOptions: RunOptions) {
+    const { gathererPlugs } = runOptions
+    console.log(chalk.blue(`开始装载插件`));
+    for (const gatherer of gathererPlugs) {
+      await new gatherer().beforePass(passContext);
+    }
   }
 
   /**
     * 执行所有收集器中的 afterPass 方法
     *
     */
-  async afterPass(passContext, gathererResults) {
-    const { page, gatherers } = passContext;
+  async afterPass(passContext: PassContext, runOptions: RunOptions, urlKey) {
+    const { page, runnerResults } = passContext;
+    const { gathererPlugs } = runOptions
+    let gathererResults = {}
     // 遍历所有收集器，执行 afterPass 方法
-    for (const gatherer of gatherers) {
-      const gathererResult = await gatherer.afterPass(passContext);
+    for (const gatherer of gathererPlugs) {
+      const gathererResult = await new gatherer().afterPass(passContext);
       gathererResults[gatherer.name] = gathererResult;
     }
-    // 执行完所有方法后截图记录
-    gathererResults.screenshotBuffer = await page.screenshot();
-  }
-
-  beforePass(passContext: PassContext) {
-    // throw new Error('Method not implemented.');
+    for (const item of runnerResults) {
+      if (item.urlKey === urlKey) {
+        // 执行完所有方法后截图记录
+        item.gathererResult = gathererResults
+        // item.gathererResult = { ...gathererResults, ...{ screenshotBuffer: await page.screenshot() } }
+      }
+    }
   }
 
   async preLogin(passContext: PassContext, runOptions: RunOptions) {
     console.log(chalk.blue(`开始登陆`));
     const { loginType } = runOptions
     let loginTypeMap: any = {
-      0: async () => {},
+      0: {
+        run: async() => {},
+      },
       1: new LoginContext(new LoginToApi()),
       2: new LoginContext(new Login()),
       3: new LoginContext(new LoginToCode()),
@@ -121,12 +160,12 @@ export class PerformanceMonitor {
   * 在 Puppeteer 中使用 Lighthouse
   *
   */
-  async getLhr(passContext: PassContext, runOptions: RunOptions) {
+  async getLhr(passContext: PassContext, runOptions: RunOptions, urlKey) {
     console.log(chalk.blue('开始获取性能数据'));
 
     // 获取浏览器对象和检测链接
-    const { browser } = passContext;
-    const { urls, origin } = runOptions
+    const { browser, runnerResults } = passContext;
+    const { origin } = runOptions
     const options = {
       logLevel: 'info',
       output: 'html',
@@ -142,14 +181,10 @@ export class PerformanceMonitor {
       onlyCategories: ['performance'],
       port: new URL(browser.wsEndpoint()).port
     };
-    passContext.runnerResults = []
-    // 开始检测
-    for (const item of urls) {
-      passContext.runnerResults.push({
-        url: item,
-        origin,
-        lighthouseResult: await lighthouse(`${origin}${item}`, options, config)
-      })
+    for (const item of runnerResults) {
+      if (item.urlKey === urlKey) {
+        item.lighthouseResult = await lighthouse(`${origin}${item.url}`, options, config)
+      }
     }
   }
 }

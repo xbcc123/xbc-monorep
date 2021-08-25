@@ -17,6 +17,21 @@ export interface RunOptions{
   username?: string,
   /** 密码 */
   password?: string
+  /** 收集器插件 */
+  gathererPlugs?: any[]
+}
+
+// 运行参数转换后的参数
+export interface RunOptionsContext {
+  /** 检测地址 */
+  urls: url[],
+  /** origin */
+  runOptions: RunOptions,
+}
+
+export interface url {
+  url: string,
+  urlKey: string
 }
 
 // 上下文
@@ -27,16 +42,22 @@ export interface PassContext{
   browser?: any
   /* 页面实例 */
   page?: any
+  /* 收集器 */
+  gatherers?: any[]
 }
 
 // 收集到的数据
 export interface PerformanceInfo {
   /** 检测地址 */
   url?: string,
+  /** 地址唯一标识 */
+  urlKey?: string
   /** lighthouse 生成的数据 */
   lighthouseResult?: any,
   /** 自定义计算的数据 */
   customResult?: any,
+  /** 收集器结果 */
+  gathererResult?: any,
   /** origin */
   origin?: string
 }

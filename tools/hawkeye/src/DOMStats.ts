@@ -2,6 +2,15 @@ import { Gatherer } from './gatherer';
 
 // 实现 Gatherer 抽象类
 export default class DOMStats extends Gatherer {
+  static instance: DOMStats
+  constructor() {
+    super();
+    if(DOMStats.instance) {
+      return DOMStats.instance
+    }
+    DOMStats.instance = this
+  }
+
   horizontalScrollBar;
 
   /**
@@ -24,21 +33,8 @@ export default class DOMStats extends Gatherer {
     });
   }
 
-  /**
-  * 页面执行结束后的钩子函数
-  *
-  * @param {PassContext} passContext
-  */
-  async afterPass(passContext) {
-    const { artifacts } = passContext;
-    // 从 lighthouse 结果对象 lhr 中获取 dom 节点的 depth，width 和 totalBodyElements
-    const {
-      DOMStats: { depth, width, totalBodyElements },
-    } = artifacts;
+  async afterPass() {
     return {
-      numElements: totalBodyElements,
-      maxDepth: depth.max,
-      maxWidth: width.max,
       hasHorizontalScrollBar: !!this.horizontalScrollBar,
     };
   }
