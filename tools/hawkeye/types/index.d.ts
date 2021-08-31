@@ -5,8 +5,8 @@ export interface RunOptions{
   urls: string[],
   /** origin */
   origin: string,
-  /** 是否需要登陆 */
-  isAuth: boolean,
+  /** 是否需要登陆 废弃*/
+  // isAuth: boolean,
   /** 登陆页面路由 */
   loginUrl?: string,
   /** 登陆之后默认跳转的路由，用于检测是否登陆完成 */
